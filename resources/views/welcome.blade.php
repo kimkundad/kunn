@@ -212,33 +212,33 @@
 			<!-- Item -->
 			<div class="fw-carousel-review">
 				<div class="testimonial-box">
-					<div class="testimonial">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation is on the runway heading towards a streamlined cloud solution user generated content.</div>
+					<div class="testimonial">ทำงานด้วยหัวใจ สร้างพลังคนดี คืนแผ่นดิน ขอแสดงความนับถือค่ะ</div>
 				</div>
 				<div class="testimonial-author">
-					<img src="{{ url('assets/images/happy-client-01.jpg') }}" alt="">
-					<h4>Jennie Smith <span>Coffee Shop Owner</span></h4>
+					<img src="{{ url('img/1016948_225180804351761_2120572456_n.jpg') }}" alt="">
+					<h4>Rsa Pume <span>Coffee Shop Owner</span></h4>
 				</div>
 			</div>
 			
 			<!-- Item -->
 			<div class="fw-carousel-review">
 				<div class="testimonial-box">
-					<div class="testimonial">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop.</div>
+					<div class="testimonial">ความรักชาติ ศาสนา เทิดทูนสถาบันพระมหากษัตริย์ เป้าหมาย เป็นคณะครูและ นักเรียน ใน 25 โรงเรียน</div>
 				</div>
 				<div class="testimonial-author">
-					<img src="{{ url('assets/images/happy-client-02.jpg') }}" alt="">
-					<h4>Tom Baker <span>Clothing Store Owner</span></h4>
+					<img src="{{ url('img/145563942_869915243845988_2285363511913583173_o.jpg') }}" alt="">
+					<h4>น้องเอมมี่ <span>Clothing Store Owner</span></h4>
 				</div>
 			</div>
 
 			<!-- Item -->
 			<div class="fw-carousel-review">
 				<div class="testimonial-box">
-					<div class="testimonial">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view.</div>
+					<div class="testimonial">การประชุมเชิงปฏิบัติการ การสร้างการมีส่วนร่วมของชุมชนหลากหลายวัฒนธรรมเมืองอุตสาหกรรมเชิงนิเวศ ในมิติสิ่งแวดล้อม</div>
 				</div>
 				<div class="testimonial-author">
-					<img src="{{ url('assets/images/happy-client-03.jpg') }}" alt="">
-					<h4>Jack Paden <span>Restaurant Owner</span></h4>
+					<img src="{{ url('img/119927487_3783254788353211_7165514661812341173_n.jpg') }}" alt="">
+					<h4>ผศ. ดร.สุริยา แก้วอาษา <span>Restaurant Owner</span></h4>
 				</div>
 			</div>
 

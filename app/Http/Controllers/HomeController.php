@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\DB;
+use App\blog;
 
 class HomeController extends Controller
 {
@@ -30,6 +33,56 @@ class HomeController extends Controller
     public function about()
     {
         return view('about');
+    }
+
+
+    public function blog_detail($id){
+        $slide = DB::table('blogs')
+                ->Orderby('view', 'desc')
+                ->limit(5)
+                ->get();
+
+               // dd($objs);
+
+        $data['slide'] = $slide;
+
+        $pre = DB::table('blogs')->where('id', $id+1)->first();
+        $next = DB::table('blogs')->where('id', $id-1)->first();
+        $data['pre'] = $pre;
+        $data['next'] = $next;
+        
+        $objs = DB::table('blogs')->where('id', $id)->first();
+
+        DB::table('blogs')
+            ->where('id', $id)
+            ->update(['view' => $objs->view+1]);
+
+        $data['objs'] = $objs;
+
+        return view('blog_detail', $data);
+    }
+
+    public function blog(){
+
+        $slide = DB::table('blogs')
+                ->Orderby('view', 'desc')
+                ->limit(5)
+                ->get();
+
+               // dd($objs);
+
+        $data['slide'] = $slide;
+
+        $objs = DB::table('blogs')
+                ->Orderby('id', 'desc')
+                ->paginate(15);
+
+               // dd($objs);
+
+        $data['objs'] = $objs;
+
+        return view('blog', $data);
+
     }
 
 }

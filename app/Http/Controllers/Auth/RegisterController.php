@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Session;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -62,12 +63,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+     protected function create(array $data)
+      {
+
+        if(Session::has('status_user') == 1){
+         Session::put('status_user', 0);
+         $this->redirectTo = '/vampireday';
+        }else{
+          $this->redirectTo = '/';
+        }
+
+          $ran = array("1483537975.png","1483556517.png","1483556686.png");
+          $randomSixDigitInt = 'GW-'.(\random_int(1000, 9999)).'-'.(\random_int(1000, 9999)).'-'.(\random_int(1000, 9999));
+          $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+          'is_admin' => false,
+          'provider' => 'email',
+          'avatar' => $ran[array_rand($ran, 1)],
+          'code_user' => $randomSixDigitInt,
         ]);
-    }
+
+        $user
+        ->roles()
+        ->attach(Role::where('name', 'customer')->first());
+        return $user;
+
+      }
 }

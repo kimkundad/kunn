@@ -196,8 +196,8 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<h3 class="headline centered">
-					What Our Users Say
-					<span class="margin-top-25">We collect reviews from our users so you can get an honest opinion of what an experience with our website are really like!</span>
+					สิ่งที่ผู้เข้าร่วมงานของเราพูด
+					<span class="margin-top-25">เรารวบรวมบทวิจารณ์จากผู้ใช้ของเราเพื่อให้คุณได้รับความคิดเห็นอย่างตรงไปตรงมาว่าประสบการณ์ในเว็บไซต์ของเรานั้นเป็นอย่างไร!</span>
 				</h3>
 			</div>
 		</div>
@@ -344,7 +344,7 @@
 			<!-- Blog post Item / End -->
 
 			<div class="col-md-12 centered-content">
-				<a href="pages-blog.html" class="button border margin-top-10">View Blog</a>
+				<a href="{{ url('blog') }}" class="button border margin-top-10">View Blog</a>
 			</div>
 
 		</div>

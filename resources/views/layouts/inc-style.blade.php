@@ -42,4 +42,7 @@ h2.headline{
     font-size: 18px;
     font-family: 'Prompt', sans-serif;
 }
+.headline.centered{
+    font-family: 'Prompt', sans-serif;
+}
 </style>

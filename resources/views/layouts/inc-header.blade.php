@@ -43,8 +43,21 @@
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<div class="header-widget">
+				@if (Auth::guest())
 					<a href="{{ url('login') }}" class="sign-in"><i class="sl sl-icon-login"></i> เข้าสู่ระบบ</a>
 					<a href="{{ url('register') }}" class="button border with-icon">สมัครสมาชิก <i class="sl sl-icon-plus"></i></a>
+				@else
+					<div class="user-menu">
+						@if(Auth::user()->provider == 'email')
+						<div class="user-name" ><span><img src="{{url('assets/images/avatar/'.Auth::user()->avatar)}}" alt=""></span>Hi, {{ Auth::user()->name }}!</div>
+						@else
+						<div class="user-name" ><span><img src="{{Auth::user()->avatar}}" alt=""></span>Hi, {{ Auth::user()->name }}!</div>
+						@endif
+						<ul>
+							<li><a href="{{url('logout')}}"><i class="sl sl-icon-power"></i> ออกจากระบบ</a></li>
+						</ul>
+					</div>
+				@endif
 				</div>
 			</div>
 			<!-- Right Side Content / End -->

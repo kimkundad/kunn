@@ -26,7 +26,7 @@
 
     <div class="post-content">
 
-        <img src="{{ url('img/QR-terminal-Banner.png') }}" class="img-responsive center-block" />
+        <img src="https://p-u.popcdn.net/event_details/backgrounds/000/010/984/original/a588669a5a80233e6510a44128c8f03861425280.png" class="img-responsive center-block" />
 		<br>
         <h3 class="text-danger">#March2021 Angular Meetup by CODIUM</h3>
         <p>ห่างหายกันไปนานเนื่องด้วย COVID-19</p>

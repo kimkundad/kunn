@@ -11,7 +11,7 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="{{ url('/') }}"><img src="{{ url('assets/images/logo.png') }}" alt=""></a>
+					<a href="{{ url('/') }}"><img src="{{ url('img/khunsukto_logo.png') }}" alt=""></a>
 				</div>
 
 				<!-- Mobile Navigation -->
@@ -42,7 +42,7 @@
 
 			<!-- Right Side Content / End -->
 			<div class="right-side">
-				<div class="header-widget">
+				<div class="header-widget" style="margin-top: 20px;">
 				@if (Auth::guest())
 					<a href="{{ url('login') }}" class="sign-in"><i class="sl sl-icon-login"></i> เข้าสู่ระบบ</a>
 					<a href="{{ url('register') }}" class="button border with-icon">สมัครสมาชิก <i class="sl sl-icon-plus"></i></a>

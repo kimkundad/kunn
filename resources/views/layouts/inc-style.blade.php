@@ -45,4 +45,43 @@ h2.headline{
 .headline.centered{
     font-family: 'Prompt', sans-serif;
 }
+#logo {
+   
+}
+#logo img {
+    max-height: 75px;
+    width: auto;
+    transform: translate3d(0,0,0);
+}
+#navigation.style-1 {
+    margin-top: 25px;
+}
+
+#footer.dark {
+    background: transparent -moz-linear-gradient(top,var(--neutral-100) 0,var(--neutral-300) 100%) 0 0 no-repeat padding-box;
+    background: transparent linear-gradient(
+180deg
+,var(--neutral-100) 0,var(--neutral-300) 100%) 0 0 no-repeat padding-box;
+    background: transparent -moz-linear-gradient(top,#f5f5f5 0,#d4dde3 100%) 0 0 no-repeat padding-box;
+    background: transparent linear-gradient(
+180deg
+,#f5f5f5,#d4dde3) 0 0 no-repeat padding-box;
+    color: #333;
+}
+#footer.dark a, #footer.dark a:hover, #footer.dark h4 {
+    color: #001d3e;
+    font-size:18px;
+}
+#footer.dark .footer-links li a, #footer.dark .text-widget, #footer.dark .text-widget span {
+    color: #666;
+    font-size:14px;
+}
+#footer.dark .copyrights {
+    color: #333;
+    border-top: 1px solid #c4c4c4;
+}
+img.footer-logo {
+    max-height: 88px;
+    width: auto;
+}
 </style>

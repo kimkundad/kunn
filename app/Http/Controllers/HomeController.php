@@ -35,6 +35,10 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function events(){
+        return view('events');
+    }
+
 
     public function blog_detail($id){
         $slide = DB::table('blogs')

@@ -22,6 +22,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/about', 'HomeController@about')->name('about');
 
+Route::get('/events', 'HomeController@events')->name('events');
+
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/blog', 'HomeController@blog');

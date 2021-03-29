@@ -46,7 +46,8 @@ h2.headline{
     font-family: 'Prompt', sans-serif;
 }
 #logo {
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+    margin-top: -8px;
 }
 #logo img {
     max-height: 75px;

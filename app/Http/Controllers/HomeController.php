@@ -7,6 +7,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
 use App\blog;
 use App\get_user;
+use App\answer;
 
 class HomeController extends Controller
 {
@@ -99,7 +100,19 @@ class HomeController extends Controller
             'phone' => 'required'
         ]);
 
-      $package = new get_user();
+      
+
+  
+      $get_ev = DB::table('events')
+      ->where('id', $request['e_id'])
+      ->first();
+
+      $loop_check = DB::table('questions')
+        ->where('cat_id', $get_ev->ex_id)
+        ->get();
+
+
+        $package = new get_user();
       $package->fname = $request['fname'];
       $package->lname = $request['lname'];
       $package->email = $request['email'];
@@ -107,6 +120,35 @@ class HomeController extends Controller
       $package->line = $request['line'];
       $package->facebook = $request['facebook'];
       $package->save();
+
+      if(isset($loop_check)){
+        foreach($loop_check as $u){
+
+            $value = $request['value_'.$u->id];
+
+                if($u->type == 0){
+                $pay = new answer();
+                $pay->user_id  = $package->id;
+                $pay->answers = $value;
+                $pay->type = $u->type;
+                $pay->e_id = $request['e_id'];
+                $pay->ex_id = $get_ev->ex_id;
+                $pay->qu_id = $u->id;
+                $pay->save(); 
+                }else{
+                $pay = new answer();
+                $pay->user_id  = $package->id;
+                $pay->answers = $request['valuex_'.$u->id];
+                $pay->type = $u->type;
+                $pay->e_id = $request['e_id'];
+                $pay->ex_id = $get_ev->ex_id;
+                $pay->qu_id = $u->id;
+                $pay->save();
+                }
+
+        }
+    }
+
 
       return redirect(url('thx_you'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
 

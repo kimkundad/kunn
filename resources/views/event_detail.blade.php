@@ -141,7 +141,7 @@
                     @endif
 
 					@else
-					<textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
+					<textarea class="WYSIWYG" name="valuex_{{$u->id}}" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
 					@endif
 				</div>
 				@endforeach

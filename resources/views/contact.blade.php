@@ -23,11 +23,11 @@
 		<!-- Contact Details -->
 		<div class="col-md-4">
 
-			<h4 class="t-color headline margin-bottom-30 ">Wealth Angels</h4>
+			<h4 class="t-color headline margin-bottom-30 ">ขุนศึกโต รักชาติ</h4>
 
 			<!-- Contact Details -->
 			<div class="sidebar-textbox">
-				<p>ใครมีข้อส่งสัยเกี่ยวกับการวางแผนการเงินส่วนบุคคล สามารถส่งข้อความมาหาพวกเราได้เลย พวกเราเหล่าแองเจิ้ลพร้อมให้คำปรึกษา</p>
+				
 
 				<ul class="contact-details">
         <li><i class="im im-icon-Phone-2"></i> <strong>Phone:</strong> <span>{{ setting()->phone }}</span></li>

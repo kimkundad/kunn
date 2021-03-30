@@ -72,6 +72,7 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        
         $image = $request->file('image');
 
         $this->validate($request, [

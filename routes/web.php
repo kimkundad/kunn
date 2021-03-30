@@ -22,6 +22,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/about', 'HomeController@about')->name('about');
 
+Route::get('/thx_you', 'HomeController@thx_you')->name('thx_you');
+
 Route::get('/events', 'HomeController@events')->name('events');
 
 Route::get('/events/{id}', 'HomeController@events_id')->name('events_id');
@@ -29,6 +31,8 @@ Route::get('/events/{id}', 'HomeController@events_id')->name('events_id');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/blog', 'HomeController@blog');
+
+Route::post('/add_data_user', 'HomeController@add_data_user')->name('add_data_user');
 
 Route::get('/contact', function () {
     return view('contact');

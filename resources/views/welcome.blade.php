@@ -21,22 +21,33 @@
 		<div class="col-md-12">
 		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  <ol class="carousel-indicators" {{$t = 0}}>
+  @if(isset($event))
+	@foreach($event as $u)
+    <li data-target="#carousel-example-generic" data-slide-to="{{$t}}" class="@if($t == 0)
+	active
+	@else
+	@endif"></li>
+	@endforeach
+    @endif
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="https://p-u.popcdn.net/hero_images/desktop_images/000/000/167/medium/1b9395419f392bf7da6a11b6e315c0782c01c5fd.jpg?1612178569" alt="...">
-      
-    </div>
-    <div class="item">
-      <img src="https://p-u.popcdn.net/hero_images/desktop_images/000/000/172/medium/90507098c85978268055d651a57e43df45a34ff0.jpg?1611893793" alt="...">
-      
-    </div>
+  <div class="carousel-inner" role="listbox" {{$s = 0}}>
+	@if(isset($event))
+	@foreach($event as $u)
+    <div class="item 
+	@if($s == 0)
+	active
+	@else
+	@endif
+	">
+	<a href="{{ url('events/'.$u->id) }}">
+      <img src="{{ url('img/events/'.$u->image) }}" alt="{{$u->name}}">
+	</a>
+    </div {{$s++}}>
+	@endforeach
+    @endif
   </div>
 
   <!-- Controls -->
@@ -67,10 +78,10 @@
 		<div class="col-md-4">
 
 			<!-- Image Box -->
-			<a href="listings-list-with-sidebar.html" class="img-box" data-background-image="{{ url('img/165990210_116050633900795_6614954977878515547_n.jpg') }}">
+			<a href="#" class="img-box" data-background-image="{{ url('img/165990210_116050633900795_6614954977878515547_n.jpg') }}">
 				<div class="img-box-content visible">
-					<h4>New York </h4>
-					<span>14 Listings</span>
+					<h4>การประชุมเชิงปฏิบัติการ </h4>
+					<span>31 picture</span>
 				</div>
 			</a>
 
@@ -79,10 +90,10 @@
 		<div class="col-md-8">
 
 			<!-- Image Box -->
-			<a href="listings-list-with-sidebar.html" class="img-box" data-background-image="{{ url('img/165843197_116050367234155_825442725899874212_n.jpg') }}">
+			<a href="#" class="img-box" data-background-image="{{ url('img/165843197_116050367234155_825442725899874212_n.jpg') }}">
 				<div class="img-box-content visible">
-					<h4>Los Angeles</h4>
-					<span>24 Listings</span>
+					<h4>การปฎิบัติงานของขุนศึกโตทีม ๑๓ หน่วยขุนศึก ๑๓</h4>
+					<span>6 picture</span>
 				</div>
 			</a>
 
@@ -91,10 +102,10 @@
 		<div class="col-md-8">
 
 			<!-- Image Box -->
-			<a href="listings-list-with-sidebar.html" class="img-box" data-background-image="{{ url('img/166417822_116050433900815_6003868338657347927_n.jpg') }}">
+			<a href="#" class="img-box" data-background-image="{{ url('img/166417822_116050433900815_6003868338657347927_n.jpg') }}">
 				<div class="img-box-content visible">
-					<h4>San Francisco </h4>
-					<span>12 Listings</span>
+					<h4>ขุนศึกโต บรรยายรอบ ๕๕/๖๑  </h4>
+					<span>7 picture</span>
 				</div>
 			</a>
 
@@ -103,10 +114,10 @@
 		<div class="col-md-4">
 
 			<!-- Image Box -->
-			<a href="listings-list-with-sidebar.html" class="img-box" data-background-image="{{ url('img/164915345_113986617440530_1032446838384860369_n.jpg') }}">
+			<a href="#" class="img-box" data-background-image="{{ url('img/164915345_113986617440530_1032446838384860369_n.jpg') }}">
 				<div class="img-box-content visible">
-					<h4>Miami</h4>
-					<span>9 Listings</span>
+					<h4>รอบนี้ลุยเรือนจำ  56/61</h4>
+					<span>5 picture</span>
 				</div>
 			</a>
 

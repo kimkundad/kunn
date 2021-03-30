@@ -2,8 +2,8 @@
       <div class="nav-top flex-grow-1">
         <div class="container d-flex flex-row h-100 align-items-center">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center">
-            <a class="navbar-brand brand-logo" href="{{ url('admin/dashboard') }}"><img src="{{ url('assets/images/my_logo.png') }}" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="{{ url('admin/dashboard') }}"><img src="{{ url('assets/images/my_logo.png') }}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo" href="{{ url('admin/dashboard') }}"><img src="{{ url('img/w_logo.jpg') }}" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="{{ url('admin/dashboard') }}"><img src="{{ url('img/w_logo.jpg') }}" alt="logo"/></a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between flex-grow-1">
 
@@ -55,11 +55,11 @@
             </li>
 
             <li class="nav-item">
-              <a href="{{ url('admin/service') }}" class="nav-link"><i class="link-icon icon-calculator"></i><span class="menu-title">Our Service</span></a>
+              <a href="{{ url('admin/events') }}" class="nav-link"><i class="link-icon icon-calculator"></i><span class="menu-title">Events</span></a>
             </li>
 
             <li class="nav-item">
-              <a href="{{ url('admin/docs') }}" class="nav-link"><i class="link-icon icon-docs"></i><span class="menu-title">เอกสาร</span></a>
+              <a href="{{ url('admin/example') }}" class="nav-link"><i class="link-icon icon-docs"></i><span class="menu-title">แบบสอบถาม</span></a>
             </li>
 
             <li class="nav-item">

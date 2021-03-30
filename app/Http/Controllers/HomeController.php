@@ -27,7 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $event = DB::table('events')
+                ->where('status', 1)
+                ->Orderby('id', 'desc')
+                ->get();
+
+                
+
+        $data['event'] = $event;
+
+        return view('welcome', $data);
     }
 
     public function about()
@@ -35,8 +44,26 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function events_id($id){
+
+        $event = DB::table('events')
+                ->where('id', $id)
+                ->first();
+
+        $data['event'] = $event;
+
+        return view('event_detail', $data);
+    }
+
     public function events(){
-        return view('events');
+        $event = DB::table('events')
+                ->where('status', 1)
+                ->Orderby('id', 'desc')
+                ->get();
+
+        $data['event'] = $event;
+
+        return view('events', $data);
     }
 
 

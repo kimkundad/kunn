@@ -187,8 +187,8 @@
 
 </section>
 
+<!--
 
-<!-- Recent Blog Posts -->
 <section class="fullwidth padding-top-75 padding-bottom-75" data-background-color="#fff">
 	<div class="container">
 
@@ -201,7 +201,7 @@
 		</div>
 
 		<div class="row">
-			<!-- Blog Post Item -->
+		
 			<div class="col-md-4">
 				<a href="pages-blog-post.html" class="blog-compact-item-container">
 					<div class="blog-compact-item">
@@ -217,9 +217,7 @@
 					</div>
 				</a>
 			</div>
-			<!-- Blog post Item / End -->
-
-			<!-- Blog Post Item -->
+		
 			<div class="col-md-4">
 				<a href="pages-blog-post.html" class="blog-compact-item-container">
 					<div class="blog-compact-item">
@@ -235,9 +233,7 @@
 					</div>
 				</a>
 			</div>
-			<!-- Blog post Item / End -->
-
-			<!-- Blog Post Item -->
+		
 			<div class="col-md-4">
 				<a href="pages-blog-post.html" class="blog-compact-item-container">
 					<div class="blog-compact-item">
@@ -253,7 +249,7 @@
 					</div>
 				</a>
 			</div>
-			<!-- Blog post Item / End -->
+		
 
 			<div class="col-md-12 centered-content">
 				<a href="{{ url('blog') }}" class="button border margin-top-10">View Blog</a>
@@ -263,8 +259,8 @@
 
 	</div>
 </section>
-<!-- Recent Blog Posts / End -->
 
+-->
 
 <section class="fullwidthmargin-top-40 border-top margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
 	<!-- Logo Carousel -->

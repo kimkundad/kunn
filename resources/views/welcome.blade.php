@@ -72,7 +72,7 @@
 	<div class="row">
 
 		<div class="col-md-12">
-			<h3 class="headline centered margin-bottom-35 margin-top-70">Popular Cities <span>Browse listings in popular places</span></h3>
+			<h3 class="headline centered margin-bottom-35 margin-top-70">ขุนศึกโต รักชาติ </h3>
 		</div>
 		
 		<div class="col-md-4">

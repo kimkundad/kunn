@@ -131,8 +131,8 @@ $(document).ready(function(){
 
 	function parallaxBG() {
 
-		$('.parallax').prepend('<div class="parallax-overlay"></div>');
-
+		$('.parallax').prepend('<div class="" id="my_para"></div>');
+	//	$('.parallax').prepend('<div class="parallax-overlay" id="my_para"></div>');
 		$( ".parallax").each(function() {
 			var attrImage = $(this).attr('data-background');
 			var attrColor = $(this).attr('data-color');

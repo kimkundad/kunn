@@ -35,13 +35,14 @@
 			<div class="col-md-3  col-sm-12">
 				<h4>Contact Us</h4>
 				<div class="text-widget">
-					<span>12345 Little Lonsdale St, Melbourne</span> <br>
-					Phone: <span>(123) 123-456 </span><br>
-					E-Mail:<span> <a href="#">office@example.com</a> </span><br>
+					<span>Id line :  0979619491</span> <br>
+					ที่ทำงาน/แฟกซ์ : <span>02-2436181 </span><br>
+					Phone: <span>097-9619491 </span><br>
+					E-Mail:<span> <a href="#">pt_voravut@yahoo.com</a> </span><br>
 				</div>
 
 				<ul class="social-icons margin-top-20">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+					<li><a class="facebook" href="https://www.facebook.com/KhunsuktoRakchat/"><i class="icon-facebook"></i></a></li>
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
 				</ul>

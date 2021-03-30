@@ -14359,3 +14359,11 @@ img.mfp-img {
 		  bottom: 20px;
 		}
 	  }
+
+
+	  .headline span {
+		font-size: 18px;
+	}
+	.logo-slick-carousel div.item {
+		padding: 30px;
+	}

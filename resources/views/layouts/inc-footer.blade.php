@@ -7,26 +7,27 @@
 			<div class="col-md-5 col-sm-6">
 				<img class="footer-logo" src="{{ url('img/khunsukto_logo.png') }}" alt="">
 				<br><br>
-				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+				<p>โครงการ สัมมนาเครือข่ายเสริมสร้างความรู้เกี่ยวกับสถาบันพระมหากษัตริย์ จัดโดย คณะกรรมาธิการวิสามัญการพิทักษ์และเทิดทูนสถาบันพระมหากษัตริย์ สภานิติบัญญัติแห่งชาติ  </p>
 			</div>
 
 			<div class="col-md-4 col-sm-6 ">
 				<h4>Helpful Links</h4>
 				<ul class="footer-links">
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Add Listing</a></li>
-					<li><a href="#">Pricing</a></li>
-					<li><a href="#">Privacy Policy</a></li>
+					@if (Auth::guest())
+					<li><a href="{{ url('login') }}">เข้าสู่ระบบ</a></li>
+					<li><a href="{{ url('register') }}">สมัครสมาชิก</a></li>
+					@else
+					<li><a href="{{ url('profile') }}">ข้อมูลของฉัน</a></li>
+					@endif
+					<li><a href="{{ url('events') }}#">งานสัมมนา</a></li>
+					<li><a href="{{ url('terms') }}#">เงื่อนไขการใช้งาน</a></li>
+					<li><a href="{{ url('policy') }}#">ความเป็นส่วนตัว</a></li>
 				</ul>
 
 				<ul class="footer-links">
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Our Partners</a></li>
-					<li><a href="#">How It Works</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#">คำถามที่พบบ่อย</a></li>
+					<li><a href="{{ url('blog') }}#">บทความ</a></li>
+					<li><a href="{{ url('contact') }}#">ติดต่อเรา</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>		
@@ -43,7 +44,6 @@
 					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
 					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="vimeo" href="#"><i class="icon-vimeo"></i></a></li>
 				</ul>
 
 			</div>

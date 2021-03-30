@@ -176,36 +176,9 @@
 
 </section>
 
-<!-- Parallax -->
-<div class="parallax"
-	data-background="{{ url('assets/images/slider-bg-02.jpg') }}"
-	data-color="#36383e"
-	data-color-opacity="0.6"
-	data-img-width="800"
-	data-img-height="505">
-
-	<!-- Infobox -->
-	<div class="text-content white-font">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-lg-6 col-sm-8">
-					<h2>Streamline Your Business</h2>
-					<p>We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-					<a href="listings-list-with-sidebar.html" class="button margin-top-25">Get Started</a>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<!-- Infobox / End -->
-
-</div>
-<!-- Parallax / End -->
 
 <!-- Recent Blog Posts -->
-<section class="fullwidth padding-top-75 padding-bottom-75" data-background-color="#f9f9f9">
+<section class="fullwidth padding-top-75 padding-bottom-75" data-background-color="#fff">
 	<div class="container">
 
 		<div class="row">
@@ -282,13 +255,13 @@
 <!-- Recent Blog Posts / End -->
 
 
-<section class="fullwidthmargin-top-40 margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
+<section class="fullwidthmargin-top-40 border-top margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
 	<!-- Logo Carousel -->
 	<div class="container">
 		<div class="row">
 
 			<div class="col-md-12">
-				<h3 class="headline centered margin-bottom-40 margin-top-10">Companies We've Worked With <span>We can assist you with your innovation or commercialisation journey!</span></h3>
+				<h3 class="headline centered margin-bottom-40 margin-top-10">ที่เราเคยร่วมงานด้วย <span> การสร้างการมีส่วนร่วมของชุมชนหลากหลายวัฒนธรรมเมืองอุตสาหกรรมเชิงนิเวศ ในมิติสิ่งแวดล้อม</span></h3>
 			</div>
 			
 			<!-- Carousel -->
@@ -296,32 +269,30 @@
 				<div class="logo-slick-carousel dot-navigation">
 					
 					<div class="item">
-						<img src="{{ url('assets/images/logo-01.png') }}" alt="">
+						<img src="{{ url('img/ta6ld6.png') }}" alt="">
 					</div>
 					
 					<div class="item">
-						<img src="{{ url('assets/images/logo-02.png') }}" alt="">
+						<img src="{{ url('img/school_navy.jpg') }}" alt="">
 					</div>
 					
 					<div class="item">
-						<img src="{{ url('assets/images/logo-03.png') }}" alt="">
+						<img src="{{ url('img/spd_20171015153937_b.jpg') }}" alt="">
 					</div>
 					
 					<div class="item">
-						<img src="{{ url('assets/images/logo-04.png') }}" alt="">
+						<img src="{{ url('img/scholl.png') }}" alt="">
 					</div>
 					
 					<div class="item">
-						<img src="{{ url('assets/images/logo-05.png') }}" alt="">
+						<img src="{{ url('img/unnamed.gif') }}" alt="">
 					</div>		
 
 					<div class="item">
-						<img src="{{ url('assets/images/logo-06.png') }}" alt="">
+						<img src="{{ url('img/images.png') }}" alt="">
 					</div>	
 
-					<div class="item">
-						<img src="{{ url('assets/images/logo-07.png') }}" alt="">
-					</div>
+				
 
 
 				</div>

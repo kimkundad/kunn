@@ -117,6 +117,22 @@ class ExampleController extends Controller
         return view('admin.example.edit', $data);
     }
 
+    public function updatesort(Request $request, $id){
+
+        $sort_order = $request['sort_order'];
+        $sort_order = json_decode($sort_order,true);
+        foreach($sort_order as $index=>$ids) {
+
+            $obj = DB::table('questions')
+            ->where('id', $ids['id'])
+            ->update(array('qu_sort' => ($index + 1) ));
+
+        }
+
+        return redirect(url('admin/example/'.$id.'/show'))->with('edit_success','ทำการเรียงลำดับคำถามใหม่เรียบร้อยแล้ว');
+
+    }
+
 
     public function post_edit_example(Request $request, $id){
 

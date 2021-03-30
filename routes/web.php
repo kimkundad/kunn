@@ -56,7 +56,7 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('del/example/{id}', 'ExampleController@del_example')->name('del_example');
     Route::post('admin/add_question', 'ExampleController@add_question')->name('add_question');
     Route::post('admin/add_question2', 'ExampleController@add_question2')->name('add_question2');
-    
+    Route::post('admin/updatesort/{id}', 'ExampleController@updatesort')->name('updatesort');
 
     Route::resource('admin/blog', 'BlogController');
     Route::post('/api/upload_img', 'BlogController@upload_img')->name('home');

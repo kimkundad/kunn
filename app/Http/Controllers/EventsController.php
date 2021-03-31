@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\event;
 use App\get_user;
 use Auth;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EventsController extends Controller
 {
@@ -25,6 +27,13 @@ class EventsController extends Controller
 
         $data['objs'] = $objs;
         return view('admin.events.index', $data);
+    }
+
+    public function get_file($id){
+
+        if($id == 1){
+          return Excel::download(new UsersExport, 'users.xlsx');
+        }
     }
 
     /**
@@ -215,6 +224,7 @@ class EventsController extends Controller
               //  dd($objs);
 
                 $data['objs'] = $objs;
+                $data['id'] = $id;
 
         return view('admin.events.report_event', $data);
     }

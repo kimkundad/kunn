@@ -24,7 +24,7 @@ window.gaTitle = 'หน้าแรก';
 
 <div class="row">
                 <div class="col-md-12">
-                  <a href="#" class="btn btn-success btn-fw" style="float:right"><i class="icon-plus"></i>Export Events</a>
+                  <a href="{{ url('admin/get_file/'.$id) }}" target="_blank" class="btn btn-success btn-fw" style="float:right"><i class="icon-plus"></i>Export Events</a>
                   <br /><br />
                 </div>
                 <div class="col-md-12 grid-margin stretch-card">

@@ -86,4 +86,6 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('admin/setting', 'SettingController@setting')->name('setting');
     Route::post('api/post_setting', 'SettingController@post_setting')->name('post_setting');
 
+    Route::get('admin/get_file/{id}', 'EventsController@get_file');
+
 });

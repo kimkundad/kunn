@@ -323,4 +323,16 @@ class EventsController extends Controller
 
              return redirect(url('admin/events'))->with('del_success','คุณทำการเพิ่มอสังหา สำเร็จ');
     }
+
+    public function del_user_event_ans($id){
+
+        $user = DB::table('get_users')
+        ->where('id', $id)
+        ->first();
+
+        DB::table('get_users')->where('id', $id)->delete();
+        DB::table('answers')->where('user_id', $user->id)->delete();
+        return redirect(url('admin/get_user_event/'.$user->status2))->with('del_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+    }
 }

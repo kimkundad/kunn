@@ -77,6 +77,7 @@ window.gaTitle = 'หน้าแรก';
                             </td>
                             <td>
                             <a href="{{ url('admin/get_user_event_ans/'.$u->id) }}" class="btn btn-outline-success btn-sm">ดูแบบสอบถาม</a>
+                            <a href="{{ url('api/del_user_event_ans/'.$u->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-sm">ลบ</a>
                             </td>
                           </tr>
                           @endforeach

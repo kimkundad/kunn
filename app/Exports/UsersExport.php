@@ -62,7 +62,7 @@ class UsersExport implements FromCollection
 
                     }
                 }
-
+                dd($objs);
         return $objs;
     }
 }

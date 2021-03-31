@@ -29,7 +29,7 @@
 						<li><a href="{{ url('/') }}">หน้าแรก</a></li>
 						<li><a href="{{ url('/about') }}">เกี่ยวกับเรา</a></li>
 						<li><a href="{{ url('/events') }}">งานสัมมนา</a></li>
-						<li><a href="{{ url('/blog') }}">บทความ</a></li>
+						<li><a href="{{ url('/blog') }}">ข่าวสาร</a></li>
 						<li><a href="{{ url('/contact') }}">ติดต่อเรา</a></li>
 					</ul>
 				</nav>

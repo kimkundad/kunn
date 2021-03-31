@@ -21,13 +21,13 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>บทความการเงิน </h2>
+				<h2>ข่าวสาร </h2>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
 						<li><a href="{{ url('/') }}">หน้าหลัก</a></li>
-						<li>บทความการเงิน</li>
+						<li>ข่าวสาร</li>
 					</ul>
 				</nav>
 
@@ -132,7 +132,7 @@
 			<!-- Widget -->
 			<div class="widget ">
 
-				<h3>Popular Posts</h3>
+				<h3>ข่าวสาร</h3>
 				<ul class="widget-tabs">
 
 				@if(isset($slide))

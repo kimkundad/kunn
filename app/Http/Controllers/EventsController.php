@@ -139,6 +139,12 @@ class EventsController extends Controller
     public function get_user_event($id)
     {
 
+        $count = DB::table('get_users')
+                ->where('status2', $id)
+                ->count();
+
+                $data['count'] = $count;
+
         $obj = DB::table('get_users')
                 ->where('status2', $id)
                 ->orderBy('id', 'desc')

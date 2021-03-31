@@ -156,6 +156,18 @@ class EventsController extends Controller
 
     public function report_event($id)
     {
+        $event = DB::table('events')
+                ->where('id', $id)
+                ->first();
+
+        $obj = DB::table('questions')
+            ->where('cat_id', $event->ex_id)
+            ->orderBy('qu_sort', 'asc')
+            ->get();
+
+            $data['obj'] = $obj;
+
+
         $objs = DB::table('get_users')
                 ->where('status2', $id)
                 ->get();

@@ -6,6 +6,16 @@ window.gaTitle = 'หน้าแรก';
 
 @section('stylesheet')
 
+<style>
+
+.content-wrapper {
+    max-width: 1600px !important;
+}
+.table td, .jsgrid .jsgrid-table td, .table th, .jsgrid .jsgrid-table th {
+    font-size: 12px;
+    padding: 16px 5px;
+}
+</style>
 @stop('stylesheet')
 
 @section('content')
@@ -34,7 +44,11 @@ window.gaTitle = 'หน้าแรก';
 							<th>นามสกุล</th>
                             <th>อีเมล</th>
                             <th>เบอร์โทร</th>
-                            <th>เบอร์โทร</th>
+                            <th>Line ID</th>
+                            <th>facebook</th>
+                            <th>ให้รางวัล</th>
+                            @if()
+                            
                           </tr>
                         </thead>
                         <tbody>

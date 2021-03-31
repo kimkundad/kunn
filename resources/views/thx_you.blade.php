@@ -29,15 +29,10 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>ขอบคุณ</h2>
+				<h2>ขอบคุณที่ร่วมการบรรยาย</h2>
 
 				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
-					<ul>
-						<li><a href="{{ url('/') }}">Home</a></li>
-						<li>ขอบคุณ</li>
-					</ul>
-				</nav>
+				
 
 			</div>
 		</div>

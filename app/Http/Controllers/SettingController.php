@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\DB;
 use App\setting;
 use Auth;
 
@@ -43,14 +43,12 @@ class SettingController extends Controller
 
            if($image != NULL){
 
-           $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-           $img = Image::make($image->getRealPath());
-           $img->resize(800, 800, function ($constraint) {
-           $constraint->aspectRatio();
-           })->save('img/setting/'.$input['imagename']);
+            $path = 'img/setting/';
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $image->move($path, $filename);
 
             $obj = setting::find($id);
-            $obj->facebook_image = $input['imagename'];
+            $obj->facebook_image = $filename;
             $obj->save();
 
             }

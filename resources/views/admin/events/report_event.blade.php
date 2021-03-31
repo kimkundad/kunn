@@ -86,7 +86,9 @@ window.gaTitle = 'หน้าแรก';
                                   NO
                                   @endif
                             </td>
-                            
+
+                            @if(isset($u->ans))
+                            @endif
                           </tr>
                           @endforeach
                           @endif

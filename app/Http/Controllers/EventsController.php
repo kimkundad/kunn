@@ -173,6 +173,37 @@ class EventsController extends Controller
                 ->where('status2', $id)
                 ->get();
 
+                
+
+                if(isset($objs)){
+                    foreach($objs as $u){
+
+                        $answers = DB::table('answers')
+                        ->where('user_id', $u->id)
+                        ->get();
+
+                        if(isset($answers)){
+                            foreach($answers as $j){
+                                
+                                if($j->type == 0){
+                                    $event = DB::table('options')
+                                        ->where('id', $j->answers)
+                                        ->first();
+
+                                        $j->my_ans = $event->op_name;
+                                }
+                                
+
+                            }
+                        }
+
+                        $u->ans = $answers;
+
+                    }
+                }
+
+              //  dd($objs);
+
                 $data['objs'] = $objs;
 
         return view('admin.events.report_event', $data);

@@ -23,7 +23,7 @@ window.gaTitle = 'หน้าแรก';
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">ผู้เข้าร่วมงาน {{ $objs->name }} ทั้งหมด ( {{ count($obj) }} คน)</h4>
+                      <h4 class="card-title">ผู้เข้าร่วมงาน {{ $objs->name }} ทั้งหมด ( {{ count($obj) }} คน )</h4>
 
                       <div class="table-responsive">
 

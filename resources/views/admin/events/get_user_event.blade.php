@@ -15,6 +15,7 @@ window.gaTitle = 'หน้าแรก';
 <div class="row">
                 
                 <div class="col-md-12">
+                <a href="{{ url('admin/get_user_event/'.$objs->id) }}" class="btn btn-danger btn-fw" style="float:left"><i class="icon-user"></i>ผู้เข้าร่วมงาน</a>
                   <a href="{{ url('admin/random_user5/'.$objs->id) }}" class="btn btn-info btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 5 คน</a>
                   <a href="{{ url('admin/random_user10/'.$objs->id) }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 10 คน</a>
                   <br /><br />

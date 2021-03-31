@@ -183,7 +183,7 @@ class EventsController extends Controller
 
         $data['objs'] = $objs;
 
-        return view('admin.events.random_user5', $data);
+        return view('admin.events.random_user10', $data);
     }
 
     /**

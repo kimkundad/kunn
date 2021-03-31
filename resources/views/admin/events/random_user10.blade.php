@@ -22,7 +22,7 @@ window.gaTitle = 'หน้าแรก';
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">สุ่มผู้โชคดี 5 คน</h4>
+                      <h4 class="card-title">สุ่มผู้โชคดี 10 คน</h4>
 
                       <div class="table-responsive">
 

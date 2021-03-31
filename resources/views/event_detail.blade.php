@@ -29,6 +29,9 @@
         <img src="{{ url('img/events/'.$event->image) }}" alt="{{$event->name}}" class="img-responsive center-block">
 		<br>
         <h3 class="text-danger">#{{ $event->name }}</h3>
+		<h5>วันที่ : {{ $event->start_event_date }} {{ $event->end_event_date }}, {{ $event->start_event_time }}</h5>
+		<h5>สถานที่ : {{ $event->name_address }}, {{ $event->address }}</h5>
+		<h5>จำนวน : {{ $event->total }} คน</h5>
         <p>
             {!! $event->detail !!}
         </p>

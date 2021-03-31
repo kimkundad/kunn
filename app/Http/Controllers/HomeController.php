@@ -119,6 +119,8 @@ class HomeController extends Controller
       $package->phone = $request['phone'];
       $package->line = $request['line'];
       $package->facebook = $request['facebook'];
+      $package->status2 = $request['e_id'];
+      $package->status3 = $get_ev->ex_id;
       $package->save();
 
       if(isset($loop_check)){

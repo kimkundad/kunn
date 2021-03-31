@@ -51,6 +51,8 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::get('api/del_events/{id}', 'EventsController@del_events')->name('del_events');
     Route::post('api/events_status', 'EventsController@events_status')->name('events_status');
 
+    Route::get('admin/get_user_event/{id}', 'EventsController@get_user_event')->name('get_user_event');
+
     Route::get('admin/example', 'ExampleController@index')->name('index');
     Route::get('admin/example/create', 'ExampleController@create')->name('create');
     Route::post('api/add_example/', 'ExampleController@add_example')->name('add_example');

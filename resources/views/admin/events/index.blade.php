@@ -13,14 +13,12 @@ window.gaTitle = 'หน้าแรก';
 
 
 <div class="row">
-                <div class="col-md-12">
-                  <a href="{{ url('admin/events/create') }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-plus"></i>เพิ่ม Events</a>
-                  <br /><br />
-                </div>
+                
+
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Event ทั้งหมด</h4>
+                      <h4 class="card-title">ผู้เข้าร่วม  ทั้งหมด</h4>
 
                       <div class="table-responsive">
 
@@ -29,7 +27,7 @@ window.gaTitle = 'หน้าแรก';
                         <thead>
 
                           <tr>
-                            <th>เรื่อง</th>
+                            <th></th>
                             <th>ประเภท</th>
 							<th>วันที่</th>
                             <th>เปิดใช้งาน</th>
@@ -65,6 +63,7 @@ window.gaTitle = 'หน้าแรก';
                             </div>
                             </td>
                             <td>
+                            <a href="{{ url('admin/get_user_event/'.$u->id) }}" class="btn btn-outline-success btn-sm">ผู้เข้าร่วมงาน</a>
                               <a href="{{ url('admin/events/'.$u->id.'/edit') }}" class="btn btn-outline-primary btn-sm">แก้ไข</a>
                               <a href="{{ url('api/del_events/'.$u->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-sm">ลบ</a>
                             </td>

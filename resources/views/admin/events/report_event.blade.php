@@ -32,10 +32,10 @@ window.gaTitle = 'หน้าแรก';
                     <div class="card-body">
                       <h4 class="card-title">รายงาน ทั้งหมด</h4>
 
-                      <div class="table-responsive">
+                      <div class="table-responsive scrollbar-width-auto" style="height: 700px; scrollbar-width: auto;">
 
 
-                      <table class="table">
+                      <table class="table" >
                         <thead>
 
                           <tr>

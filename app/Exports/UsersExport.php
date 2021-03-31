@@ -13,6 +13,7 @@ class UsersExport implements FromCollection
     */
     public function collection()
     {
+        $id = 1;
         $event = DB::table('events')
         ->where('id', $id)
         ->first();

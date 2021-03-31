@@ -151,7 +151,7 @@
                 @endif
 
 			</div>
-            <button type="submit" class="button preview pull-right">ลงทะเบียนเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
+            <button type="submit" class="button preview pull-right">ลงทะเบียนหลังเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
 			
         </div>
 		</form>

@@ -15,8 +15,8 @@ window.gaTitle = 'หน้าแรก';
 <div class="row">
                 
                 <div class="col-md-12">
-                  <a href="{{ url('admin/random_user5/'.$objs->id) }}" class="btn btn-info btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 5 คน</a>
-                  <a href="{{ url('admin/random_user10/'.$objs->id) }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 10 คน</a>
+                <a href="{{ url('admin/random_user5/'.$objs->id) }}" class="btn btn-info btn-fw" style="float:right; "><i class="icon-user"></i>สุ่มผู้โชคดี 5 คน</a>
+                <a href="{{ url('admin/random_user10/'.$objs->id) }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 10 คน</a>
                   <br /><br />
                 </div>
                 <div class="col-md-12 grid-margin stretch-card">
@@ -81,7 +81,7 @@ window.gaTitle = 'หน้าแรก';
                         </tbody>
                       </table>
                       </div>
-					  {{ $obj->links() }}
+					
                     </div>
                   </div>
                 </div>

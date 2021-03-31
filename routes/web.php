@@ -50,6 +50,9 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::post('/api/events_upload_img', 'EventsController@upload_img')->name('home');
     Route::get('api/del_events/{id}', 'EventsController@del_events')->name('del_events');
     Route::post('api/events_status', 'EventsController@events_status')->name('events_status');
+    Route::post('api/getuser_status', 'EventsController@getuser_status')->name('getuser_status');
+    Route::get('admin/random_user5/{id}', 'EventsController@random_user5')->name('random_user5');
+    Route::get('admin/random_user10/{id}', 'EventsController@random_user10')->name('random_user10');
 
     Route::get('admin/get_user_event/{id}', 'EventsController@get_user_event')->name('get_user_event');
 

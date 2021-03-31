@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
 use App\event;
+use App\get_user;
 use Auth;
 
 class EventsController extends Controller
@@ -63,6 +64,30 @@ class EventsController extends Controller
     
         }
 
+
+        public function getuser_status(Request $request){
+
+            //  dd($request->all());
+        
+              $user = get_user::findOrFail($request->user_id);
+        
+                      if($user->status == 1){
+                          $user->status = 0;
+                      } else {
+                          $user->status = 1;
+                      }
+        
+              return response()->json([
+              'data' => [
+                'success' => $user->save(),
+              ]
+            ]);
+        
+            }
+
+
+        
+
     /**
      * Store a newly created resource in storage.
      *
@@ -113,8 +138,52 @@ class EventsController extends Controller
      */
     public function get_user_event($id)
     {
+
+        $obj = DB::table('get_users')
+                ->where('status2', $id)
+                ->paginate(15);
+
+        $data['obj'] = $obj;
+
+
         //
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
         return view('admin.events.get_user_event', $data);
+    }
+
+    public function random_user5($id){
+
+
+        $obj = get_user::inRandomOrder()->limit(5)->get();
+
+        $data['obj'] = $obj;
+
+
+        //
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
+        return view('admin.events.random_user5', $data);
+    }
+
+    public function random_user10($id){
+
+
+        $obj = get_user::inRandomOrder()->limit(10)->get();
+
+        $data['obj'] = $obj;
+
+
+        //
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
+        return view('admin.events.random_user5', $data);
     }
 
     /**

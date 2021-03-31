@@ -13,12 +13,14 @@ window.gaTitle = 'หน้าแรก';
 
 
 <div class="row">
-                
-
+                <div class="col-md-12">
+                  <a href="{{ url('admin/events/create') }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-plus"></i>เพิ่ม Events</a>
+                  <br /><br />
+                </div>
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">ผู้เข้าร่วม  ทั้งหมด</h4>
+                      <h4 class="card-title">Event ทั้งหมด</h4>
 
                       <div class="table-responsive">
 

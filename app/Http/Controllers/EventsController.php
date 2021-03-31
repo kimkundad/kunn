@@ -141,6 +141,7 @@ class EventsController extends Controller
 
         $obj = DB::table('get_users')
                 ->where('status2', $id)
+                ->orderBy('id', 'desc')
                 ->paginate(15);
 
         $data['obj'] = $obj;

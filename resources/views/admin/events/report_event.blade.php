@@ -9,7 +9,7 @@ window.gaTitle = 'หน้าแรก';
 <style>
 
 .content-wrapper {
-    max-width: 1600px !important;
+    max-width: 1400px !important;
 }
 .table td, .jsgrid .jsgrid-table td, .table th, .jsgrid .jsgrid-table th {
     font-size: 12px;

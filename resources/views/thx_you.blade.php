@@ -22,22 +22,6 @@
 
 
 
-<!-- Titlebar
-================================================== -->
-<div id="titlebar">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-
-				<h2>ขอบคุณที่ร่วมการบรรยาย</h2>
-
-				<!-- Breadcrumbs -->
-				
-
-			</div>
-		</div>
-	</div>
-</div>
 
 
 <!-- Content
@@ -53,8 +37,10 @@
 			<section id="not-found" class="center">
 				
             
-				<p>ขอบคุณสำหรับการเข้าร่วมการบรรยายกับเรา</p>
-
+				<h4>ขอบคุณสำหรับการเข้าร่วมการบรรยายกับเรา</h4>
+				<p>เข้าร่วมและติดตามเราได้ที่</p>
+				<p>เพจ Facebook : ขุนศึกโต รักชาติ <a href="https://www.facebook.com/KhunsuktoRakchat">https://www.facebook.com/KhunsuktoRakchat</a> 
+				<br> Line@ : <a href="https://lin.ee/FCnpgSv">https://lin.ee/FCnpgSv</a> </p>
 				<!-- Search -->
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2">

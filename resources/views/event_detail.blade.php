@@ -38,7 +38,7 @@
         
         <div>
 
-        <h3 class="margin-top-80 margin-bottom-30">ข้อมูลของผู้เข้าร่วม</h3>
+        <h3 class="margin-top-80 margin-bottom-30">กรอกแบบสอบถามหลังเข้าร่วมงาน</h3>
 		<form id="contactForm" method="POST" action="{{ url('add_data_user') }}">
 		{{ csrf_field() }}
 		<input type="hidden" name="e_id" value="{{ $event->id }}">

@@ -88,6 +88,17 @@ window.gaTitle = 'หน้าแรก';
                             </td>
 
                             @if(isset($u->ans))
+
+                                @foreach($u->ans as $j)
+                                <td>
+                                    @if($j->type == 0)
+                                    {{$j->my_ans}}
+                                    @else
+                                    {{$j->answers}}
+                                    @endif
+                                </td>
+                                @endforeach
+
                             @endif
                           </tr>
                           @endforeach

@@ -30,7 +30,7 @@
         <a href="{{ url('events/'.$u->id) }}">
         <img src="{{ url('img/events/'.$u->image) }}" alt="{{$u->name}}" class="img-responsive center-block" />
 		<br>
-        <h3 class="text-danger">#March2021 Angular Meetup by CODIUM</h3>
+        <h3 class="text-danger">{{$u->name}}</h3>
         </a>
         <hr>
         @endforeach

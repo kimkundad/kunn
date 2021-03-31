@@ -5,8 +5,8 @@
 
 <!-- Basic Page Needs
 ================================================== -->
-<title>@yield('title')</title>
-<meta name="description" content="Wealth Angels ได้รวบรวมทุกสาระ เรื่องการเงิน จากประสบการณ์ตรงในแวดวงการเงินกว่า 10 ปี ถ้าคุณอยากจะเริ่มต้นเรียนรู้ ติดตามเราได้ thewealthangels.com">
+<title>ขุนศึกโต รักชาติ</title>
+<meta name="description" content="ภารกิจ... สร้างคนดี ด้วยประวัติศาสตร์ สร้างชาติ ด้วยอุดมการณ์">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 

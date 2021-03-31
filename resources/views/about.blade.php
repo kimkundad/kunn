@@ -63,9 +63,8 @@
             </blockquote>
         </div>
 
-        <p>ที่ทำงาน/แฟกซ์ 02-2436181</p>
-        <p>Id line   0979619491</p>
-        <p>Email   pt_voravut@yahoo.com</p>
+       
+        <p>Email  : Khunsukto.Rakchat@gmail.com</p>
 
         <br><br><br>
         

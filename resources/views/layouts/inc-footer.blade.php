@@ -38,7 +38,7 @@
 				<!--	<span>Id line :  0979619491</span> <br>
 					ที่ทำงาน/แฟกซ์ : <span>02-2436181 </span><br>
 					Phone: <span>097-9619491 </span><br> -->
-					E-Mail:<span> <a href="#">pt_voravut@yahoo.com</a> </span><br>
+					E-Mail:<span> <a href="#">Khunsukto.Rakchat@gmail.com</a> </span><br>
 					Facebook:<span> <a href="https://www.facebook.com/KhunsuktoRakchat/">KhunsuktoRakchat</a> </span><br>
 				</div>
 

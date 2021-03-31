@@ -100,7 +100,27 @@ class HomeController extends Controller
             'phone' => 'required'
         ]);
 
-      
+        $check_phone = DB::table('get_users')
+        ->where('phone', $request['phone'])
+        ->count();
+
+        $check_email = DB::table('get_users')
+        ->where('email', $request['email'])
+        ->count();
+
+     if($check_phone > 0){
+        return redirect(url('events/'.$request['e_id']))->with('error_phone','คุณทำการเพิ่มอสังหา สำเร็จ');
+     }else{
+
+     
+
+     if($check_email > 0){
+
+        return redirect(url('events/'.$request['e_id']))->with('error_email','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+     }else{
+
+     
 
   
       $get_ev = DB::table('events')
@@ -111,8 +131,7 @@ class HomeController extends Controller
         ->where('cat_id', $get_ev->ex_id)
         ->get();
 
-
-        $package = new get_user();
+      $package = new get_user();
       $package->fname = $request['fname'];
       $package->lname = $request['lname'];
       $package->email = $request['email'];
@@ -154,6 +173,8 @@ class HomeController extends Controller
 
       return redirect(url('thx_you'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');
 
+}
+     }
 
     }
 

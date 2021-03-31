@@ -76,6 +76,23 @@
 				</div>
 				@endif
 
+		
+				@if ($message = Session::get('error_email'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					E-Mail Address ถูกใช้ไปแล้ว
+                    </span>
+				</div>
+				@endif
+
+				@if ($message = Session::get('error_phone'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					เบอร์โทรนี้ ถูกใช้ไปแล้ว
+                    </span>
+				</div>
+				@endif
+
 				<div class="col-md-6">
                 <div class="input-with-icon medium-icons">
 					<label>ชื่อ</label>

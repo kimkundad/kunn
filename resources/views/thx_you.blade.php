@@ -37,16 +37,19 @@
 			<section id="not-found" class="center">
 				
             
-				<h4>ขอบคุณสำหรับการเข้าร่วมการบรรยายกับเรา</h4>
-				<p>เข้าร่วมและติดตามเราได้ที่</p>
-				<p>เพจ Facebook : ขุนศึกโต รักชาติ <a href="https://www.facebook.com/KhunsuktoRakchat">https://www.facebook.com/KhunsuktoRakchat</a> 
-				<br> Line@ : <a href="https://lin.ee/FCnpgSv">https://lin.ee/FCnpgSv</a> </p>
+				<h4 style="margin-top:150px; font-size:28px">ขอบคุณสำหรับการเข้าร่วมการบรรยายกับเรา</h4>
+				<h4>เข้าร่วมและติดตามเราได้ที่</h4>
+				<br>
+				<h4>เพจ Facebook : ขุนศึกโต รักชาติ <a href="https://www.facebook.com/KhunsuktoRakchat">https://www.facebook.com/KhunsuktoRakchat</a> 
+				<br><br> Line@ : <a href="https://lin.ee/FCnpgSv">https://lin.ee/FCnpgSv</a> </h4>
 				<!-- Search -->
 				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="main-search-input gray-style margin-top-50 margin-bottom-10">
-							
-						</div>
+					<div class="col-md-6 col-sm-6 col-xs-6" >
+					<a href="https://www.facebook.com/KhunsuktoRakchat"><img src="{{ url('img/messageImage_1617158828138.jpg') }}" class="img-responsive"></a>	
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6">
+						<a href="https://lin.ee/FCnpgSv"><img src="{{ url('img/messageImage_1617158836326.jpg') }}" class="img-responsive"></a>
+						
 					</div>
 				</div>
 				<!-- Search Section / End -->

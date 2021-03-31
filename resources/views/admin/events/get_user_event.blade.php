@@ -32,11 +32,12 @@ window.gaTitle = 'หน้าแรก';
                         <thead>
 
                           <tr>
+                          <th></th>
                             <th>ชื่อ - นามสกุล </th>
                             <th>อีเมล</th>
 							<th>เบอร์โทร</th>
                             <th>Line ID</th>
-                            <th>acebook</th>
+                            <th>facebook</th>
                             <th>ให้รางวัล</th>
                             <th>ดำเนินการ</th>
                           </tr>
@@ -46,6 +47,9 @@ window.gaTitle = 'หน้าแรก';
 						@if(isset($obj))
                       @foreach($obj as $u)
                           <tr access_id="{{$u->id}}">
+                          <td>
+                            {{$u->id}}
+                            </td>
                             <td>
                               {{$u->fname}}  {{$u->lname}}
                             </td>

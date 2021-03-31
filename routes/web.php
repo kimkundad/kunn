@@ -53,6 +53,8 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::post('api/getuser_status', 'EventsController@getuser_status')->name('getuser_status');
     Route::get('admin/random_user5/{id}', 'EventsController@random_user5')->name('random_user5');
     Route::get('admin/random_user10/{id}', 'EventsController@random_user10')->name('random_user10');
+    Route::get('admin/report_event/{id}', 'EventsController@report_event')->name('report_event');
+
 
     Route::get('admin/get_user_event/{id}', 'EventsController@get_user_event')->name('get_user_event');
 

@@ -65,7 +65,9 @@ window.gaTitle = 'หน้าแรก';
                             </div>
                             </td>
                             <td>
+
                             <a href="{{ url('admin/get_user_event/'.$u->id) }}" class="btn btn-outline-success btn-sm">ผู้เข้าร่วมงาน</a>
+                            <a href="{{ url('admin/report_event/'.$u->id) }}" class="btn btn-outline-warning btn-sm">รายงาน</a>
                               <a href="{{ url('admin/events/'.$u->id.'/edit') }}" class="btn btn-outline-primary btn-sm">แก้ไข</a>
                               <a href="{{ url('api/del_events/'.$u->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-sm">ลบ</a>
                             </td>

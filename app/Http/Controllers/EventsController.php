@@ -154,6 +154,18 @@ class EventsController extends Controller
         return view('admin.events.get_user_event', $data);
     }
 
+    public function report_event($id)
+    {
+        $objs = DB::table('get_users')
+                ->where('status2', $id)
+                ->get();
+
+                $data['objs'] = $objs;
+
+        return view('admin.events.report_event', $data);
+    }
+
+
     public function random_user5($id){
 
 

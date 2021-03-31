@@ -47,8 +47,9 @@ window.gaTitle = 'หน้าแรก';
                             <th>Line ID</th>
                             <th>facebook</th>
                             <th>ให้รางวัล</th>
-                            @if()
-                            
+                            @if(isset($obj))
+
+                            @endif
                           </tr>
                         </thead>
                         <tbody>

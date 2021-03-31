@@ -185,6 +185,7 @@ class EventsController extends Controller
                         if(isset($answers)){
                             foreach($answers as $j){
                                 
+                                if($j->answers != null){
                                 if($j->type == 0){
                                     $event = DB::table('options')
                                         ->where('id', $j->answers)
@@ -192,6 +193,9 @@ class EventsController extends Controller
 
                                         $j->my_ans = $event->op_name;
                                 }
+                            }else{
+                                $j->my_ans = "ไม่ได้ตอบในข้อนี้";
+                            }
                                 
 
                             }

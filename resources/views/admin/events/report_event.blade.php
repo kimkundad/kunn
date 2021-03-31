@@ -46,15 +46,50 @@ window.gaTitle = 'หน้าแรก';
                             <th>เบอร์โทร</th>
                             <th>Line ID</th>
                             <th>facebook</th>
-                            <th>ให้รางวัล</th>
+                            <th>รางวัล</th>
                             @if(isset($obj))
-
+                            @foreach($obj as $u)
+                            <th>{{ $u->qu_name }}</th>
+                            @endforeach
                             @endif
                           </tr>
                         </thead>
                         <tbody>
-                      
-						
+                        @if(isset($objs))
+                      @foreach($objs as $u)
+                          <tr >
+                          <td>
+                            {{$u->updated_at}}
+                            </td>
+                            <td>
+                              {{$u->fname}}  
+                            </td>
+                            <td>
+                               {{$u->lname}}
+                            </td>
+                            <td>
+                            {{$u->email}}
+                            </td>
+							<td>
+                              {{$u->phone}}
+                            </td>
+                            <td>
+                              {{$u->line}}
+                            </td>
+                            <td>
+                              {{$u->facebook}}
+                            </td>
+                            <td>
+                                 @if($u->status == 1)
+                                 YES
+                                  @else
+                                  NO
+                                  @endif
+                            </td>
+                            
+                          </tr>
+                          @endforeach
+                          @endif
 
 
                         </tbody>

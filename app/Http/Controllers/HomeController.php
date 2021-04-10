@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
 use App\blog;
+use App\folder;
 use App\get_user;
 use App\answer;
+use App\banner;
+use App\review;
 
 class HomeController extends Controller
 {
@@ -29,7 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $event = DB::table('events')
+        $event = DB::table('slides')
                 ->where('status', 1)
                 ->Orderby('id', 'desc')
                 ->get();
@@ -38,7 +41,135 @@ class HomeController extends Controller
 
         $data['event'] = $event;
 
+
+        $review = DB::table('reviews')
+                ->where('status', 1)
+                ->Orderby('id', 'desc')
+                ->get();
+
+        $data['review'] = $review;
+
+        $blog = DB::table('blogs')
+        ->Orderby('id', 'desc')
+        ->limit(3)
+        ->get();
+
+        $data['blog'] = $blog;
+
+        $objs = folder::limit(4)->get();
+
+        if(isset($objs)){
+            foreach($objs as $u){
+                $u->count = DB::table('gallery_fs')->where('folder_id', $u->id)->count();
+            }
+        }
+
+        $data['objs'] = $objs;
+
+        $ban = banner::get();
+
+        $data['ban'] = $ban;
+
         return view('welcome', $data);
+    }
+
+
+
+    public function add_contact(Request $request){
+
+        $secret="6LdBOl8UAAAAAM-iNnghy4tPxFpCOPG6J1Hg8xLu";
+    //  $response = $request['captcha'];
+
+      $captcha = "";
+      if (isset($request["g-recaptcha-response"]))
+        $captcha = $request["g-recaptcha-response"];
+
+    //  $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
+      $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER["REMOTE_ADDR"]), true);
+      //$captcha_success=json_decode($verify);
+
+    //  dd($captcha_success);
+
+    if($response["success"] == false) {
+
+        return response()->json([
+          'data' => [
+            'status' => 100,
+            'msg' => 'This user was not verified by recaptcha.'
+          ]
+        ]);
+
+      }else{
+
+        //BoSMNzMqkODt0pdl8fJQXB9aY5mjFaZcIyQ8jWqvS6P
+
+        $message = $request['name'].", ".$request['email'].", ".$request['subject'].", ข้อความ : ".$request['comments'];
+        $lineapi = setting()->line_token;
+
+        $mms =  trim($message);
+        $chOne = curl_init();
+        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($chOne, CURLOPT_POST, 1);
+        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
+        curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
+        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
+        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($chOne);
+        if(curl_error($chOne)){
+        echo 'error:' . curl_error($chOne);
+        }else{
+        $result_ = json_decode($result, true);
+    //    echo "status : ".$result_['status'];
+    //    echo "message : ". $result_['message'];
+        }
+        curl_close($chOne);
+
+        return response()->json([
+            'data' => [
+              'status' => 200,
+              'msg' => 'This user is verified by recaptcha.'
+            ]
+          ]);
+
+            }
+
+
+    }
+
+
+    public function gallery(){
+        $objs = DB::table('folders')
+                ->where('status', 1)
+                ->Orderby('id', 'desc')
+                ->get();
+
+                if(isset($objs)){
+                    foreach($objs as $u){
+                        $u->count = DB::table('gallery_fs')->where('folder_id', $u->id)->count();
+                    }
+                }
+
+        $data['objs'] = $objs;
+
+        return view('gallery', $data);
+    }
+
+
+    public function gallery_detail($id){
+
+        $obj = DB::table('folders')
+                ->where('id', $id)
+                ->first();
+
+        $objs = DB::table('gallery_fs')->where('folder_id', $id)->get();
+        $data['obj'] = $obj;
+        $data['objs'] = $objs;
+
+        return view('gallery_detail', $data);
+
     }
 
     public function about()

@@ -47,7 +47,11 @@
             </li>
 
             <li class="nav-item">
-              <a href="{{ url('admin/index_b') }}" class="nav-link"><i class="link-icon icon-wallet"></i><span class="menu-title">บทความหน้าแรก</span></a>
+              <a href="{{ url('admin/folder') }}" class="nav-link"><i class="link-icon icon-folder"></i><span class="menu-title">folder</span></a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{ url('admin/review') }}" class="nav-link"><i class="link-icon icon-user"></i><span class="menu-title">Review</span></a>
             </li>
 
             <li class="nav-item">

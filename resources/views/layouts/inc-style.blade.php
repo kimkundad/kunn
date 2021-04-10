@@ -71,7 +71,7 @@ h2.headline{
 }
 #footer.dark a, #footer.dark a:hover, #footer.dark h4 {
     color: #001d3e;
-    font-size:18px;
+    font-size:14px;
 }
 #footer.dark .footer-links li a, #footer.dark .text-widget, #footer.dark .text-widget span {
     color: #666;

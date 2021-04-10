@@ -20,7 +20,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('/api/add_contact', 'HomeController@add_contact')->name('add_contact');
+
 Route::get('/about', 'HomeController@about')->name('about');
+
+Route::get('/gallery', 'HomeController@gallery')->name('gallery');
+Route::get('/gallery_detail/{id}', 'HomeController@gallery_detail')->name('gallery_detail');
 
 Route::get('/thx_you', 'HomeController@thx_you')->name('thx_you');
 
@@ -31,6 +36,8 @@ Route::get('/events/{id}', 'HomeController@events_id')->name('events_id');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/blog', 'HomeController@blog');
+
+Route::get('/blog_detail/{id}', 'HomeController@blog_detail');
 
 Route::post('/add_data_user', 'HomeController@add_data_user')->name('add_data_user');
 
@@ -45,8 +52,20 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
     Route::get('admin/dashboard', 'DashboardController@index');
-
+ 
+    Route::resource('admin/folder', 'FolderController');
     Route::resource('admin/events', 'EventsController');
+    Route::post('api/folder_status', 'FolderController@folder_status')->name('folder_status');
+    Route::post('admin/add_my_gallery/{id}', 'FolderController@add_my_gallery')->name('add_my_gallery');
+
+    Route::get('admin/my_gallery_f/{id}', 'FolderController@my_gallery_f')->name('my_gallery_f');
+    Route::get('api/del_folder/{id}', 'FolderController@del_folder')->name('del_folder');
+    Route::get('api/del_image_ff/{id}', 'FolderController@del_image_ff')->name('del_image_ff');
+
+    Route::get('admin/pics', 'BanController@index')->name('index');
+    Route::post('/admin/add_my_banner', 'BanController@add_my_banner')->name('add_my_banner');
+    Route::get('api/del_image_banner/{id}', 'BanController@del_image_banner')->name('del_image_banner');
+
     Route::post('/api/events_upload_img', 'EventsController@upload_img')->name('home');
     Route::get('api/del_events/{id}', 'EventsController@del_events')->name('del_events');
     Route::post('api/events_status', 'EventsController@events_status')->name('events_status');
@@ -87,5 +106,8 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::post('api/post_setting', 'SettingController@post_setting')->name('post_setting');
 
     Route::get('admin/get_file/{id}', 'EventsController@get_file');
+    Route::resource('admin/review', 'ReviewController');
+    Route::post('api/post_status_review', 'ReviewController@post_status_review');
+    Route::get('api/del_review/{id}', 'ReviewController@del_review')->name('del_review');
 
 });

@@ -51,19 +51,19 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div>
-								<input name="name" type="text" id="name" placeholder="Your Name" required="required" />
+								<input name="name" type="text" id="name" placeholder="ชื่อ-นามสกุล" required="required" />
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div>
-								<input name="email" type="email" id="email" placeholder="Email Address" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />
+								<input name="email" type="email" id="email" placeholder="อีเมล" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />
 							</div>
 						</div>
 					</div>
 
 					<div>
-						<input name="subject" type="text" id="subject" placeholder="Subject" required="required" />
+						<input name="subject" type="text" id="subject" placeholder="หัวข้อเรื่อง" required="required" />
 					</div>
 
 					<div>
@@ -71,7 +71,7 @@
 					</div>
 
 					<div>
-						<textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
+						<textarea name="comments" cols="40" rows="3" id="comments" placeholder="ข้อความ" spellcheck="true" required="required"></textarea>
 					</div>
 
 					<input type="submit" class="submit button" id="btnSendData" value="ส่งข้อความ" />

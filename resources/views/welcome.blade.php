@@ -42,8 +42,8 @@
 	@else
 	@endif
 	">
-	<a href="{{ url('events/'.$u->id) }}">
-      <img src="{{ url('img/events/'.$u->image) }}" alt="{{$u->name}}">
+	<a href="{{ url($u->url_btn) }}">
+      <img src="{{ url('img/slide/'.$u->image) }}" alt="{{$u->title}}">
 	</a>
     </div {{$s++}}>
 	@endforeach
@@ -72,55 +72,28 @@
 	<div class="row">
 
 		<div class="col-md-12">
-			<h3 class="headline centered margin-bottom-35 margin-top-70">ขุนศึกโต รักชาติ </h3>
+			<h3 class="headline centered margin-bottom-35 margin-top-70">รูปกิจกรรม ขุนศึกโต รักชาติ </h3>
 		</div>
 		
-		<div class="col-md-4">
+
+		@if(isset($objs))
+		@foreach($objs as $u)
+		<div class="col-md-6">
 
 			<!-- Image Box -->
-			<a href="#" class="img-box" data-background-image="{{ url('img/165990210_116050633900795_6614954977878515547_n.jpg') }}">
+			<a href="{{ url('gallery_detail/'.$u->id) }}" class="img-box" data-background-image="{{ url('img/folder/'.$u->image) }}">
 				<div class="img-box-content visible">
-					<h4>การประชุมเชิงปฏิบัติการ </h4>
-					<span>31 picture</span>
+					<h4>{{$u->name}} </h4>
+					<span>{{$u->count}} รูป</span>
 				</div>
 			</a>
 
 		</div>	
-			
-		<div class="col-md-8">
+		@endforeach
+        @endif
 
-			<!-- Image Box -->
-			<a href="#" class="img-box" data-background-image="{{ url('img/165843197_116050367234155_825442725899874212_n.jpg') }}">
-				<div class="img-box-content visible">
-					<h4>การปฎิบัติงานของขุนศึกโตทีม ๑๓ หน่วยขุนศึก ๑๓</h4>
-					<span>6 picture</span>
-				</div>
-			</a>
-
-		</div>	
-
-		<div class="col-md-8">
-
-			<!-- Image Box -->
-			<a href="#" class="img-box" data-background-image="{{ url('img/166417822_116050433900815_6003868338657347927_n.jpg') }}">
-				<div class="img-box-content visible">
-					<h4>ขุนศึกโต บรรยายรอบ ๕๕/๖๑  </h4>
-					<span>7 picture</span>
-				</div>
-			</a>
-
-		</div>	
-			
-		<div class="col-md-4">
-
-			<!-- Image Box -->
-			<a href="#" class="img-box" data-background-image="{{ url('img/164915345_113986617440530_1032446838384860369_n.jpg') }}">
-				<div class="img-box-content visible">
-					<h4>รอบนี้ลุยเรือนจำ  56/61</h4>
-					<span>5 picture</span>
-				</div>
-			</a>
-
+		<div class="col-md-12 centered-content">
+			<a href="{{ url('/gallery') }}" class="button border margin-top-10">ดูเพิ่มเติม</a>
 		</div>
 
 	</div>
@@ -148,38 +121,21 @@
 	<div class="fullwidth-carousel-container margin-top-20">
 		<div class="testimonial-carousel testimonials">
 
+			@if(isset($review))
+			@foreach($review as $u)
 			<!-- Item -->
 			<div class="fw-carousel-review">
 				<div class="testimonial-box">
-					<div class="testimonial">ทำงานด้วยหัวใจ สร้างพลังคนดี คืนแผ่นดิน ขอแสดงความนับถือค่ะ</div>
+					<div class="testimonial">{{ $u->detail }}</div>
 				</div>
 				<div class="testimonial-author">
-					<img src="{{ url('img/1016948_225180804351761_2120572456_n.jpg') }}" alt="">
-					<h4>Rsa Pume <span>Coffee Shop Owner</span></h4>
+					<img src="{{ url('img/review/'.$u->avatar) }}" alt="ข้อความจาก {{ $u->name }}">
+					<h4>{{ $u->name }} <span>{{ $u->position }}</span></h4>
 				</div>
 			</div>
+			@endforeach
+			@endif
 			
-			<!-- Item -->
-			<div class="fw-carousel-review">
-				<div class="testimonial-box">
-					<div class="testimonial">ความรักชาติ ศาสนา เทิดทูนสถาบันพระมหากษัตริย์ เป้าหมาย เป็นคณะครูและ นักเรียน ใน 25 โรงเรียน</div>
-				</div>
-				<div class="testimonial-author">
-					<img src="{{ url('img/145563942_869915243845988_2285363511913583173_o.jpg') }}" alt="">
-					<h4>น้องเอมมี่ <span>Clothing Store Owner</span></h4>
-				</div>
-			</div>
-
-			<!-- Item -->
-			<div class="fw-carousel-review">
-				<div class="testimonial-box">
-					<div class="testimonial">การประชุมเชิงปฏิบัติการ การสร้างการมีส่วนร่วมของชุมชนหลากหลายวัฒนธรรมเมืองอุตสาหกรรมเชิงนิเวศ ในมิติสิ่งแวดล้อม</div>
-				</div>
-				<div class="testimonial-author">
-					<img src="{{ url('img/119927487_3783254788353211_7165514661812341173_n.jpg') }}" alt="">
-					<h4>ผศ. ดร.สุริยา แก้วอาษา <span>Restaurant Owner</span></h4>
-				</div>
-			</div>
 
 		</div>
 	</div>
@@ -187,7 +143,7 @@
 
 </section>
 
-<!--
+
 
 <section class="fullwidth padding-top-75 padding-bottom-75" data-background-color="#fff">
 	<div class="container">
@@ -202,53 +158,28 @@
 
 		<div class="row">
 		
+		@if(isset($blog))
+		@foreach($blog as $u)
 			<div class="col-md-4">
-				<a href="pages-blog-post.html" class="blog-compact-item-container">
+				<a href="{{ url('blog_detail/'.$u->id) }}" class="blog-compact-item-container">
 					<div class="blog-compact-item">
-						<img src="{{ url('img/164915345_113986617440530_1032446838384860369_n.jpg') }}" alt="">
-						<span class="blog-item-tag">Tips</span>
+						<img src="{{ url('img/blog/'.$u->image) }}" alt="">
 						<div class="blog-compact-item-content">
 							<ul class="blog-post-tags">
-								<li>22 August 2017</li>
+								<li>{{ formatDateThat($u->created_at) }}</li>
 							</ul>
-							<h3>Hotels for All Budgets</h3>
-							<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
+							<h3>{{ $u->title }}</h3>
+							<p>{{ $u->sub_title }}</p>
 						</div>
 					</div>
 				</a>
 			</div>
+			@endforeach
+		@endif
+
+			
 		
-			<div class="col-md-4">
-				<a href="pages-blog-post.html" class="blog-compact-item-container">
-					<div class="blog-compact-item">
-						<img src="{{ url('img/165680740_115586290613896_3319704199513497414_n.jpg') }}" alt="">
-						<span class="blog-item-tag">Tips</span>
-						<div class="blog-compact-item-content">
-							<ul class="blog-post-tags">
-								<li>18 August 2017</li>
-							</ul>
-							<h3>The 50 Greatest Street Arts In London</h3>
-							<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-						</div>
-					</div>
-				</a>
-			</div>
 		
-			<div class="col-md-4">
-				<a href="pages-blog-post.html" class="blog-compact-item-container">
-					<div class="blog-compact-item">
-						<img src="{{ url('img/166146022_116050030567522_8982822517603521279_n.jpg') }}" alt="">
-						<span class="blog-item-tag">Tips</span>
-						<div class="blog-compact-item-content">
-							<ul class="blog-post-tags">
-								<li>10 August 2017</li>
-							</ul>
-							<h3>The Best Cofee Shops In Sydney Neighborhoods</h3>
-							<p>Sed sed tristique nibh iam porta volutpat finibus. Donec in aliquet urneget mattis lorem. Pellentesque pellentesque.</p>
-						</div>
-					</div>
-				</a>
-			</div>
 		
 
 			<div class="col-md-12 centered-content">
@@ -260,7 +191,7 @@
 	</div>
 </section>
 
--->
+
 
 <section class="fullwidthmargin-top-40 border-top margin-bottom-0 padding-top-60 padding-bottom-65" data-background-color="#ffffff">
 	<!-- Logo Carousel -->
@@ -275,32 +206,13 @@
 			<div class="col-md-12">
 				<div class="logo-slick-carousel dot-navigation">
 					
+					@if(isset($ban))
+					@foreach($ban as $u)
 					<div class="item">
-						<img src="{{ url('img/ta6ld6.png') }}" alt="">
+						<img src="{{ url('img/banner/'.$u->image) }}" alt="">
 					</div>
-					
-					<div class="item">
-						<img src="{{ url('img/school_navy.jpg') }}" alt="">
-					</div>
-					
-					<div class="item">
-						<img src="{{ url('img/spd_20171015153937_b.jpg') }}" alt="">
-					</div>
-					
-					<div class="item">
-						<img src="{{ url('img/scholl.png') }}" alt="">
-					</div>
-					
-					<div class="item">
-						<img src="{{ url('img/unnamed.gif') }}" alt="">
-					</div>		
-
-					<div class="item">
-						<img src="{{ url('img/images.png') }}" alt="">
-					</div>	
-
-				
-
+					@endforeach
+					@endif
 
 				</div>
 			</div>

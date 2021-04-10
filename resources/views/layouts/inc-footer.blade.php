@@ -55,7 +55,7 @@
 		<!-- Copyright -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+				<div class="copyrights">© 2021 Mawathecreation. All Rights Reserved.</div>
 			</div>
 		</div>
 

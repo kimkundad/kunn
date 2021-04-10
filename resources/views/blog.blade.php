@@ -146,12 +146,14 @@
 			<!-- Widget -->
 			<div class="widget margin-top-40">
 				<h3 class="margin-bottom-25">Social</h3>
-				<ul class="social-icons rounded">
-					<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
-					<li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
-				</ul>
+				<div class="header-widget " style="margin-top:20px; text-align: left; height: 74px;">
+					<a target="_blank" href="{{ setting()->facebook_url }}" class="sign-in " style="margin-right: 5px;"> 
+						<img src="{{ url('assets/images/facebook_logo.png') }}" alt="facebook" style="width: 52px;"> 
+					</a>
+					<a target="_blank" href="{{ setting()->line_oa_url }}" class="sign-in "> 
+					<img src="{{ url('assets/images/line_logo.png') }}" alt="line_logo" style="width: 52px;"> 
+					</a>
+				</div>
 
 			</div>
 			<!-- Widget / End-->

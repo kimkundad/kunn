@@ -151,7 +151,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="headline centered margin-bottom-50">
-					From The Blog
+					ข่าวสารล่าสุด
 				</h3>
 			</div>
 		</div>
@@ -183,7 +183,7 @@
 		
 
 			<div class="col-md-12 centered-content">
-				<a href="{{ url('blog') }}" class="button border margin-top-10">View Blog</a>
+				<a href="{{ url('blog') }}" class="button border margin-top-10">ดูเพิ่มเติม</a>
 			</div>
 
 		</div>

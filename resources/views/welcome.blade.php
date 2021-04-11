@@ -169,7 +169,6 @@
 								<li>{{ formatDateThat($u->created_at) }}</li>
 							</ul>
 							<h3>{{ $u->title }}</h3>
-							<p>{{ $u->sub_title }}</p>
 						</div>
 					</div>
 				</a>

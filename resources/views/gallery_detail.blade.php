@@ -56,7 +56,7 @@
 		@foreach($objs as $u)
 		<div class="col-md-4">
 
-        <a id="single_image" href="{{ url('img/folder/'.$u->g_name) }}"><img src="{{ url('img/folder/'.$u->g_name) }}" /></a>
+        <a id="single_image" href="{{ url('img/folder/'.$u->g_name) }}"><img src="{{ url('img/folder/'.$u->g_name) }}" style="margin-top: 15px;" /></a>
 
 		</div>	
 		@endforeach

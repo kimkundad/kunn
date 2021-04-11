@@ -1,9 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.template')
+
+@section('ga')
+window.gaTitle = 'หน้าแรก';
+@endsection
+
+@section('stylesheet')
+
+@stop('stylesheet')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<!-- Container / Start -->
+<div class="container margin-bottom-80 margin-top-120">
+
+	<div class="row justify-content-around">
+
+
+		<!-- Contact Form -->
+		<div class="col-lg-8 col-lg-offset-2">
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -14,34 +27,39 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <div class="sign-in-form style-1">
+                    <form method="POST" class="login" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <p class="form-row form-row-wide">
+                        <label for="username">{{ __('E-Mail Address') }}
+                            <i class="im im-icon-Male"></i>
+                            <input type="email" class="input-text" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus/>
+                        </label>
+                        @error('email')
+                            <span class="text-danger">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </p>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
+                        <div class="form-row">
+                                
+                                <input type="submit" class="button border margin-top-5" name="login" value="{{ __('Send Password Reset Link') }}" />
+                            
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@section('scripts')
+
+
+@stop('scripts')

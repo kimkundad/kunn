@@ -33,11 +33,11 @@ window.gaTitle = 'หน้าแรก';
 								<i class="im im-icon-Male"></i>
 								<input type="text" class="input-text" name="name" value="{{ old('name') }}" />
 							</label>
-                            @if ($errors->has('name'))
+							@error('name')
                                 <span class="text-danger">
-                                    <strong>กรุณากรอก ชื่อของท่าน</strong>
+                                    <strong>{{ $message }}</strong>
                                 </span>
-                            @endif
+								@enderror
 						</p>
 								
 						<p class="form-row form-row-wide">
@@ -45,23 +45,25 @@ window.gaTitle = 'หน้าแรก';
 								<i class="im im-icon-Mail"></i>
 								<input type="text" class="input-text" name="email"  value="{{ old('email') }}" />
 							</label>
-                            @if ($errors->has('email'))
+                       
+							@error('email')
                                 <span class="text-danger">
-                                    <strong>กรุณากรอก email ของท่าน</strong>
+                                    <strong>{{ $message }}</strong>
                                 </span>
-                            @endif
+								@enderror
 						</p>
 
 						<p class="form-row form-row-wide">
 							<label for="password1">Password:
 								<i class="im im-icon-Lock-2"></i>
-								<input class="input-text" type="password" name="password1" />
+								<input class="input-text" type="password" name="password" />
 							</label>
-                            @if ($errors->has('password'))
+        
+							@error('password')
                                 <span class="text-danger">
-                                <strong>password ต้องมีอย่างน้อย 6 ตัวอักษรขึ้นไป</strong>
+                                <strong>รหัสผ่านควรมีอย่างน้อย 8 ตัวขึ้นไป และ password กับ ยืนยัน password ต้องตรงกัน</strong>
                                 </span>
-                            @endif
+								@enderror
 						</p>
 
 						<p class="form-row form-row-wide">

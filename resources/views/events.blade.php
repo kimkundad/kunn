@@ -30,7 +30,14 @@
         <a href="{{ url('events/'.$u->id) }}">
         <img src="{{ url('img/events/'.$u->image) }}" alt="{{$u->name}}" class="img-responsive center-block" />
 		<br>
-        <h3 class="text-danger">{{$u->name}}</h3>
+        <h3 class="text-danger">
+        @if($u->status_end == 1)
+        <a href="#" style=" color: #fff; "class="button">จบงานไปแล้ว</a>
+        @endif
+        {{$u->name}}</h3>
+        <h5><b>วันที่ :</b> {{ $u->start_event_date }} {{ $u->end_event_date }}, {{ $u->start_event_time }}</h5>
+		<h5><b>สถานที่ :</b> {{ $u->name_address }}, {{ $u->address }}</h5>
+		<h5><b>จำนวน :</b> {{ $u->total }} คน</h5>
         </a>
         <hr>
         @endforeach

@@ -66,9 +66,10 @@ class RegisterController extends Controller
      protected function create(array $data)
       {
 
-        if(Session::has('status_user') == 1){
-         Session::put('status_user', 0);
-         $this->redirectTo = '/vampireday';
+        if(Session::has('my_events') != null){
+          $id = Session::has('my_events');
+         Session::put('my_events', 0);
+         $this->redirectTo = 'events/'.$id;
         }else{
           $this->redirectTo = '/';
         }

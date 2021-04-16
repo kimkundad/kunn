@@ -41,7 +41,16 @@ class LoginController extends Controller
      return redirect('/admin/dashboard');
      }
      if($request->user()->hasRole('customer')){
-       return redirect('/profile');
+       
+      if(Session::has('my_events') != null){
+        $id = Session::has('my_events');
+       Session::put('my_events', 0);
+
+        return redirect(url('events/'.$id));
+        }else{
+
+       return redirect('/');
+        }
      }
 
      //return redirect('/');

@@ -11,6 +11,7 @@ use App\get_user;
 use App\answer;
 use App\banner;
 use App\review;
+use Session;
 
 class HomeController extends Controller
 {
@@ -180,6 +181,11 @@ class HomeController extends Controller
     public function thx_you()
     {
         return view('thx_you');
+    }
+
+    public function regis_event($id){
+        Session::put('my_events', $id);
+        return redirect(url('register'));
     }
 
     

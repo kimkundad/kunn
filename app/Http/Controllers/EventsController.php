@@ -314,6 +314,7 @@ class EventsController extends Controller
         $package->name_address = $request['name_address'];
         $package->address = $request['address'];
         $package->ex_id = $request['ex_id'];
+        $package->status_end = $request['status_end'];
         $package->save();
 
 
@@ -345,6 +346,7 @@ class EventsController extends Controller
      $package->name_address = $request['name_address'];
      $package->address = $request['address'];
      $package->ex_id = $request['ex_id'];
+     $package->status_end = $request['status_end'];
      $package->save();
 
         }

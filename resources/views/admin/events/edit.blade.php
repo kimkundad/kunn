@@ -111,6 +111,20 @@ window.gaTitle = 'หน้าแรก';
                                         @endif >แบบไม่สมัครสมาชิก</option>
                       </select>
           </div>
+
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">การจบงาน <span class="text-danger">*</span></label>
+                      <select class="form-control" name="status_end">
+                        <option value="">เลือกประเถท</option>
+                        <option value="0" @if( $objs->status_end == 0)
+                                        selected='selected'
+                                        @endif >ยังเปิดงาน</option>
+                        <option value="1" @if( $objs->status_end == 1)
+                                        selected='selected'
+                                        @endif >ปิดงานแล้ว</option>
+                      </select>
+          </div>
         
         
         <br />

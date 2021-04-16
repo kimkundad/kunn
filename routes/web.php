@@ -32,6 +32,8 @@ Route::get('/thx_you', 'HomeController@thx_you')->name('thx_you');
 Route::get('/events', 'HomeController@events')->name('events');
 
 Route::get('/events/{id}', 'HomeController@events_id')->name('events_id');
+Route::get('/api/regis_event/{id}', 'HomeController@regis_event')->name('regis_event');
+
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

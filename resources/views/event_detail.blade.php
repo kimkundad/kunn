@@ -28,16 +28,38 @@
 
         <img src="{{ url('img/events/'.$event->image) }}" alt="{{$event->name}}" class="img-responsive center-block">
 		<br>
-        <h3 class="text-danger">#{{ $event->name }}</h3>
+        <h3 class="text-danger">@if($event->status_end == 1)
+        <a href="#" style=" color: #fff; "class="button">จบงานไปแล้ว</a>
+        @endif {{ $event->name }}</h3>
 		<h5><b>วันที่ :</b> {{ $event->start_event_date }} {{ $event->end_event_date }}, {{ $event->start_event_time }}</h5>
 		<h5><b>สถานที่ :</b> {{ $event->name_address }}, {{ $event->address }}</h5>
 		<h5><b>จำนวน :</b> {{ $event->total }} คน</h5>
+
+		@if (Auth::guest())
+		@if($event->type == 0)
+		<div class="text-center margin-bottom-50 margin-top-50">
+		<a href="{{ url('/api/regis_event/'.$event->id) }}" class="button">ลงทะเบียนเข้าร่วมงาน</a>
+		</div>
+		@endif
+		@endif
+
         <p>
             {!! $event->detail !!}
         </p>
         
-        <div>
+    <div>
+	@if (Auth::guest())
+	@if($event->type == 0)
+	<div class="text-center margin-bottom-70 margin-top-70">
+	<a href="{{ url('/api/regis_event/'.$event->id) }}" class="button">ลงทะเบียนเข้าร่วมงาน</a>
+	</div>
+	@endif
+	@endif
 
+
+		@if($event->status_end == 0)
+		@if (Auth::guest())
+		@else
         <h3 class="margin-top-80 margin-bottom-30">กรอกแบบสอบถามหลังเข้าร่วมงาน</h3>
 		<form id="contactForm" method="POST" action="{{ url('add_data_user') }}">
 		{{ csrf_field() }}
@@ -96,7 +118,7 @@
 				<div class="col-md-6">
                 <div class="input-with-icon medium-icons">
 					<label>ชื่อ</label>
-					<input type="text" name="fname" value="{{ old('fname') }}">
+					<input type="text" name="fname" value="{{ Auth::user()->name ?? old('fname') }}">
                     <i class="im im-icon-Checked-User"></i>
                     </div>
 				</div>
@@ -112,7 +134,7 @@
 				<div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label>E-Mail Address</label>
-						<input type="text" name="email" value="{{ old('email') }}">
+						<input type="text" name="email" value="{{ Auth::user()->email ?? old('email') }}">
 						<i class="im im-icon-Mail"></i>
 					</div>
 				</div>
@@ -169,7 +191,8 @@
 
 			</div>
             <button type="submit" class="button preview pull-right">ลงทะเบียนหลังเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
-			
+			@endif
+			@endif
         </div>
 		</form>
         

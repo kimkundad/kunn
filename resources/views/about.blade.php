@@ -43,7 +43,7 @@
     <!-- Content -->
     <div class="post-content">
 
-      <img src="{{ url('img/cover_img.png') }}" class="img-responsive center-block">
+      <img src="{{ url('img/cover_img.png') }}" style=" width: 100%;" class="img-responsive center-block">
 		<br>
     <h3>ขุนศึกโต รักชาติ</h3>
         <p>

@@ -28,6 +28,8 @@ Route::get('/gallery', 'HomeController@gallery')->name('gallery');
 Route::get('/gallery_detail/{id}', 'HomeController@gallery_detail')->name('gallery_detail');
 
 Route::get('/thx_you', 'HomeController@thx_you')->name('thx_you');
+Route::get('/terms', 'HomeController@terms')->name('terms');
+Route::get('/policy', 'HomeController@policy')->name('policy');
 
 Route::get('/events', 'HomeController@events')->name('events');
 

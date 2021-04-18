@@ -67,8 +67,53 @@
 </div>
 
 
-<!-- Container -->
+<!-- Info Section -->
 <div class="container">
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h2 class="headline centered margin-top-80">
+				ขุนศึกโต รักชาติ
+				<span class="margin-top-25">มิเคยหวังจะเป็นวีรบุรุษ แต่ก็สุดเห็นชาติพินาศสลาย มิเคยหวังจะเป็นวีรสตรี แค่อยากทำความดีเพื่อแผ่นดิน</span>
+			</h2>
+		</div>
+	</div>
+
+	<div class="row icons-container">
+		<!-- Stage -->
+		<div class="col-md-4">
+			<div class="icon-box-2 with-line">
+				<i class="im im-icon-Map2"></i>
+				<h3>ถ่ายทอดทุกประสบการณ์</h3>
+				<p>เติมชีวิตให้เต็มสุข ค้นศักยภาพไร้ขีดจำกัด ก้าวสู่เป้าหมายแห่งชีวิตที่เราต้องการ <br> ด้วยเวอร์ชั่นที่ดีที่สุดของ “ตัวเรา”</p>
+			</div>
+		</div>
+
+		<!-- Stage -->
+		<div class="col-md-4">
+			<div class="icon-box-2 with-line">
+				<i class="im im-icon-Ribbon-2"></i>
+				<h3>ค้นศักยภาพไร้ขีดจำกัด</h3>
+				<p>หาตัวตนแท้ให้พบหนทางสู่ศักยภาพที่ไร้ขีดจำกัด แล้วคุณจะลุกเป็นไฟ! เปลี่ยนแปลงขนานใหญ่กำลังจะเกิดขึ้นกับชีวิตคุณ</p>
+			</div>
+		</div>
+
+		<!-- Stage -->
+		<div class="col-md-4">
+			<div class="icon-box-2">
+				<i class="im im-icon-Add-UserStar"></i>
+				<h3>เติมชีวิตให้เต็มสุข </h3>
+				<p>เติมสุขให้เต็มชีวิต แนวทางการดำเนินชีวิต เพื่อพบความสุขที่แท้และยั่งยืน ด้วยวิธีการสร้างความสุขที่แท้จริง เรียบง่าย และยั่งยืน</p>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Info Section / End -->
+
+<!-- Container -->
+<section class="fullwidth border-top margin-top-70 padding-top-75 " data-background-color="#fff">
+<div class="container ">
 	<div class="row">
 
 		<div class="col-md-12">
@@ -92,12 +137,13 @@
 		@endforeach
         @endif
 
-		<div class="col-md-12 centered-content">
+		<div class="col-md-12 padding-top-40 centered-content">
 			<a href="{{ url('/gallery') }}" class="button border margin-top-10">ดูเพิ่มเติม</a>
 		</div>
 
 	</div>
 </div>
+</section>
 <!-- Container / End -->
 
 

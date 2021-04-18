@@ -178,6 +178,16 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function terms()
+    {
+        return view('terms');
+    }
+
+    public function policy()
+    {
+        return view('policy');
+    }
+
     public function thx_you()
     {
         return view('thx_you');

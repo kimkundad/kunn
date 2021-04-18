@@ -77,6 +77,10 @@ h2.headline{
     color: #666;
     font-size:14px;
 }
+#footer.dark .footer-links li a:hover {
+    color: #666;
+    font-size:14px;
+}
 #footer.dark .copyrights {
     color: #333;
     border-top: 1px solid #c4c4c4;

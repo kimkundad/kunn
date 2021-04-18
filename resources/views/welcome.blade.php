@@ -68,7 +68,7 @@
 
 
 <!-- Info Section -->
-<div class="container margin-top-70">
+<div class="container margin-top-50">
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

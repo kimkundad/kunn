@@ -57,7 +57,7 @@ class HomeController extends Controller
 
         $data['blog'] = $blog;
 
-        $objs = folder::limit(4)->get();
+        $objs = folder::limit(4)->Orderby('id', 'desc')->get();
 
         if(isset($objs)){
             foreach($objs as $u){

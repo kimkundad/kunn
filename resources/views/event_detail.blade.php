@@ -248,9 +248,12 @@
                             <div class="col-md-6">
 								<h5>ระดับการศึกษา <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
 								<select class="chosen-select-no-single" name="study">
+								@if (Auth::guest())
+								@else
                                     @if(Auth::user()->study != null)
                                     <option value="{{ Auth::user()->study }}" selected='selected'> {{ Auth::user()->study }} </option>
                                     @endif
+									@endif
                                     <option value=""> เลือกระดับการศึกษา </option>
 									<option value="ประถมศึกษา"> ประถมศึกษา </option>
 									<option value="มัธยมศึกษา"> มัธยมศึกษา </option>
@@ -269,9 +272,12 @@
                             <div class="col-md-12">
 								<h5>อาชีพ <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
 								<select class="chosen-select-no-single" name="novice">
+								@if (Auth::guest())
+								@else
                                     @if(Auth::user()->novice != null)
                                     <option value="{{ Auth::user()->novice }}" selected='selected'> {{ Auth::user()->novice }} </option>
                                     @endif
+									@endif
                                     <option value="" > เลือกอาชีพ </option>
 									<option value=" ข้าราชการ/รัฐวิสาหกิจ"> ข้าราชการ/รัฐวิสาหกิจ </option>
 									<option value="นักเรียน/นักศึกษา"> นักเรียน/นักศึกษา </option>

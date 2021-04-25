@@ -150,6 +150,21 @@
 				</div>
 				@endif
 
+				@if (Auth::guest())
+
+				<div class="col-md-2">
+								<h5>คำนำหน้า <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
+								<select class="chosen-select-no-single" name="first_n" >
+									<option value="1"> นาย </option>
+									<option value="2"> นางสาว </option>
+									<option value="3"> นาง </option>
+								</select>
+                                
+							</div>
+
+
+				@else
+
 				<div class="col-md-2">
 								<h5>คำนำหน้า <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
 								<select class="chosen-select-no-single" name="first_n" >
@@ -171,6 +186,10 @@
 								</select>
                                 
 							</div>
+
+
+				@endif
+				
 
                 <div class="col-md-5">
                 <div class="">

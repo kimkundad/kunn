@@ -60,8 +60,7 @@
 	
 
 		@if($event->status_end == 0)
-		@if (Auth::guest())
-		@else
+		
         <h3 class="margin-top-80 margin-bottom-30">กรอกแบบสอบถามหลังเข้าร่วมงาน</h3>
 		<p>เครื่องหมาย <i class="tip" data-tip-content="Name of your business"></i> จำเป็นต้องกรอกให้ครบ</p>
 		<form id="contactForm" method="POST" action="{{ url('add_data_user') }}">
@@ -298,7 +297,7 @@
 			<button type="submit" class="button preview">ลงทะเบียนหลังเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
 			</div>
             </div>
-			@endif
+			
 			@endif
         </div>
 		</form>

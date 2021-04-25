@@ -57,6 +57,8 @@
 							@if(Auth::user()->is_admin == 1)
 							<li><a href="{{url('admin/dashboard')}}"><i class="im im-icon-Alien-2"></i>Controller</a></li>
 							@endif
+							<li><a href="{{url('profile')}}"><i class="sl sl-icon-user"></i>ข้อมูลผู้ใช้งาน</a></li>
+							<li><a href="{{url('my_events')}}"><i class="sl sl-icon-tag"></i>งานสัมมนา</a></li>
 							<li><a href="{{url('logout')}}"><i class="sl sl-icon-power"></i> ออกจากระบบ</a></li>
 						</ul>
 					</div>

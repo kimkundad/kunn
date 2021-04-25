@@ -23,7 +23,9 @@ window.gaTitle = 'หน้าแรก';
 			<section id="contact ">
 				<h4 class="headline margin-bottom-35 margin-top-30">สมัครสมาชิก</h4>
 
-				<div id="contact-message"></div> 
+				<div id="contact-message">
+				
+				</div> 
 
                 <div class="sign-in-form style-1">
                 <form method="POST" action="{{ url('/register') }}" class="login">

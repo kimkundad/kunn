@@ -26,6 +26,7 @@
 
     <div class="post-content">
 
+		
         <img src="{{ url('img/events/'.$event->image) }}" alt="{{$event->name}}" class="img-responsive center-block">
 		<br>
         <h3 class="text-danger">@if($event->status_end == 1)
@@ -56,14 +57,17 @@
 	@endif
 	@endif
 
+	
 
 		@if($event->status_end == 0)
 		@if (Auth::guest())
 		@else
         <h3 class="margin-top-80 margin-bottom-30">กรอกแบบสอบถามหลังเข้าร่วมงาน</h3>
+		<p>เครื่องหมาย <i class="tip" data-tip-content="Name of your business"></i> จำเป็นต้องกรอกให้ครบ</p>
 		<form id="contactForm" method="POST" action="{{ url('add_data_user') }}">
 		{{ csrf_field() }}
 		<input type="hidden" name="e_id" value="{{ $event->id }}">
+		
         <div class="row">
 
 				@if ($errors->has('fname'))
@@ -98,6 +102,38 @@
 				</div>
 				@endif
 
+				@if ($errors->has('age'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					กรอบ อายุ ให้ครบ
+                    </span>
+				</div>
+				@endif
+
+				@if ($errors->has('age'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					กรอบ อายุ ให้ครบ
+                    </span>
+				</div>
+				@endif
+
+				@if ($errors->has('study'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					กรอบ ระดับการศึกษ ให้ครบ
+                    </span>
+				</div>
+				@endif
+
+				@if ($errors->has('novice'))
+				<div class="notification notice large margin-bottom-10">
+                    <span class="text-w">
+					กรอบ อาชีพ ให้ครบ
+                    </span>
+				</div>
+				@endif
+
 		
 				@if ($message = Session::get('error_email'))
 				<div class="notification notice large margin-bottom-10">
@@ -115,52 +151,119 @@
 				</div>
 				@endif
 
-				<div class="col-md-6">
-                <div class="input-with-icon medium-icons">
-					<label>ชื่อ</label>
-					<input type="text" name="fname" value="{{ Auth::user()->name ?? old('fname') }}">
-                    <i class="im im-icon-Checked-User"></i>
+				<div class="col-md-2">
+								<h5>คำนำหน้า <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
+								<select class="chosen-select-no-single" name="first_n" >
+									<option value="1" 
+                                    @if(Auth::user()->first_n == 1)
+                                    selected='selected'
+                                    @endif
+                                    > นาย </option>
+									<option value="2"
+                                    @if(Auth::user()->first_n == 2)
+                                    selected='selected'
+                                    @endif
+                                    > นางสาว </option>
+									<option value="3" 
+                                    @if(Auth::user()->first_n == 3)
+                                    selected='selected'
+                                    @endif
+                                    > นาง </option>
+								</select>
+                                
+							</div>
+
+                <div class="col-md-5">
+                <div class="">
+					<label>ชื่อ <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></label>
+					<input type="text" name="fname" value="{{ Auth::user()->fname ?? old('fname') }}">
+               
+                    </div>
+				</div>
+
+				<div class="col-md-5">
+                <div class="">
+					<label>นามสกุล <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></label>
+					<input type="text" name="lname" value="{{ Auth::user()->lname ?? old('lname') }}">
+                
                     </div>
 				</div>
 
 				<div class="col-md-6">
-                <div class="input-with-icon medium-icons">
-					<label>นามสกุล </label>
-					<input type="text" name="lname" value="{{ old('lname') }}">
-                    <i class="im im-icon-Checked-User"></i>
-                    </div>
-				</div>
-
-				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label>E-Mail Address</label>
-						<input type="text" name="email" value="{{ Auth::user()->email ?? old('email') }}">
-						<i class="im im-icon-Mail"></i>
+					<div class="">
+						<label>E-Mail Address <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></label>
+						<input type="text" name="email" value="{{ Auth::user()->email ?? old('email') }}" >
 					</div>
 				</div>
 
 				<div class="col-md-6">
-					<div class="input-with-icon medium-icons">
-						<label> เบอร์โทร</label>
-						<input type="text" name="phone" value="{{ old('phone') }}">
-						<i class="im im-icon-Phone-2"></i>
+					<div class="">
+						<label> เบอร์โทร <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></label> 
+						<input type="text" name="phone" value="{{ Auth::user()->phone ?? old('phone') }}">
+				
 					</div>
 				</div>
 
                 <div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label> Line ID</label>
-						<input type="text" name="line" value="{{ old('line') }}">
+						<input type="text" name="line" value="{{ Auth::user()->zipcode ?? old('line') }} ">
 					</div>
 				</div>
 
                 <div class="col-md-6">
 					<div class="input-with-icon medium-icons">
 						<label> Facebook</label>
-						<input type="text" name="facebook" value="{{ old('facebook') }}">
+						<input type="text" name="facebook" value="{{ Auth::user()->birthday ?? old('facebook') }} ">
                         <i class="im im-icon-Facebook-2"></i>
 					</div>
 				</div>
+
+
+				<div class="col-md-6">
+					<div class="">
+						<label> อายุ <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></label>
+						<input type="text" name="age" value="{{ Auth::user()->age ?? old('age') }}">
+					</div>
+				</div>
+
+                            <div class="col-md-6">
+								<h5>ระดับการศึกษา <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
+								<select class="chosen-select-no-single" name="study">
+                                    @if(Auth::user()->study != null)
+                                    <option value="{{ Auth::user()->study }}" selected='selected'> {{ Auth::user()->study }} </option>
+                                    @endif
+                                    <option value=""> เลือกระดับการศึกษา </option>
+									<option value="ประถมศึกษา"> ประถมศึกษา </option>
+									<option value="มัธยมศึกษา"> มัธยมศึกษา </option>
+									<option value="อาชีวศึกษา"> อาชีวศึกษา </option>
+                                    <option value="อุดมศึกษา"> อุดมศึกษา </option>
+                                    <option value="อาชีวศึกษา"> อาชีวศึกษา </option>
+                                    <option value="ปริญญาตรี"> ปริญญาตรี </option>
+                                    <option value="ปริญญาโท"> ปริญญาโท </option>
+                                    <option value="ปริญญาเอก"> ปริญญาเอก </option>
+                                    <option value="อื่นๆ"> อื่นๆ </option>
+								</select>
+				            </div>
+
+                            
+
+                            <div class="col-md-12">
+								<h5>อาชีพ <i class="tip" data-tip-content="จำเป็นต้องกรอกให้ครบ"></i></h5>
+								<select class="chosen-select-no-single" name="novice">
+                                    @if(Auth::user()->novice != null)
+                                    <option value="{{ Auth::user()->novice }}" selected='selected'> {{ Auth::user()->novice }} </option>
+                                    @endif
+                                    <option value="" > เลือกอาชีพ </option>
+									<option value=" ข้าราชการ/รัฐวิสาหกิจ"> ข้าราชการ/รัฐวิสาหกิจ </option>
+									<option value="นักเรียน/นักศึกษา"> นักเรียน/นักศึกษา </option>
+									<option value="รับจ้าง/อิสระ"> รับจ้าง/อิสระ </option>
+                                    <option value="เกษตรกรรม/ประมง"> เกษตรกรรม/ประมง </option>
+                                    <option value="พนักงานบริษัท"> พนักงานบริษัท </option>
+                                    <option value=" ค้าขาย/ธุรกิจส่วนตัว/เจ้าของกิจการ">  ค้าขาย/ธุรกิจส่วนตัว/เจ้าของกิจการ </option>
+                                
+								</select>
+				            </div>
 
 				<div class="col-md-12">
 				
@@ -190,7 +293,11 @@
                 @endif
 
 			</div>
-            <button type="submit" class="button preview pull-right">ลงทะเบียนหลังเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
+			<div class="row">
+			<div class="col-md-12 text-center">
+			<button type="submit" class="button preview">ลงทะเบียนหลังเข้าร่วม <i class="fa fa-arrow-circle-right"></i></button>
+			</div>
+            </div>
 			@endif
 			@endif
         </div>

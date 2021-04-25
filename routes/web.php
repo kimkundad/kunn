@@ -40,6 +40,8 @@ Route::get('/api/regis_event/{id}', 'HomeController@regis_event')->name('regis_e
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/blog', 'HomeController@blog');
+Route::get('/success_update', 'HomeController@success_update');
+
 
 Route::get('/blog_detail/{id}', 'HomeController@blog_detail');
 
@@ -51,6 +53,11 @@ Route::get('/contact', function () {
 
 Route::group(['middleware' => ['UserRole:manager|employee|customer']], function() {
 
+    Route::get('/profile', 'ProfileController@index');
+    Route::get('/my_events', 'ProfileController@my_events');
+    Route::post('api/post_update_profile', 'ProfileController@post_update_profile')->name('post_update_profile');
+    
+    
 });
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {

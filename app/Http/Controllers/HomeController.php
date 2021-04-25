@@ -12,6 +12,8 @@ use App\answer;
 use App\banner;
 use App\review;
 use Session;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -178,6 +180,10 @@ class HomeController extends Controller
         return view('about');
     }
 
+    public function success_update(){
+        return view('success_update');
+    }
+
     public function terms()
     {
         return view('terms');
@@ -240,11 +246,16 @@ class HomeController extends Controller
 
     public function add_data_user(Request $request){
 
+        //dd($request->all());
         $this->validate($request, [
+            'first_n' => 'required',
             'fname' => 'required',
             'lname' => 'required',
+            'phone' => 'required',
+            'age' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'study' => 'required',
+            'novice' => 'required'
         ]);
 
         $check_phone = DB::table('get_users')
@@ -287,7 +298,35 @@ class HomeController extends Controller
       $package->facebook = $request['facebook'];
       $package->status2 = $request['e_id'];
       $package->status3 = $get_ev->ex_id;
+      $package->first_n = $request['first_n'];
+      $package->age = $request['age'];
+        $package->study = $request['study'];
+        $package->novice = $request['novice'];
       $package->save();
+
+      if (Auth::check()){
+
+        $id = Auth::user()->id;
+
+            $package = User::find($id);
+            $package->phone = $request['phone'];
+            $package->birthday = $request['facebook'];
+            $package->zipcode = $request['line'];
+            $package->first_n = $request['first_n'];
+            $package->age = $request['age'];
+            $package->study = $request['study'];
+            $package->novice = $request['novice'];
+            $package->fname = $request['fname'];
+            $package->lname = $request['lname'];
+            $package->save();
+
+            $qrcode = $package->code_user;
+
+      }else{
+        $qrcode = null;
+      }
+
+
 
       if(isset($loop_check)){
         foreach($loop_check as $u){
@@ -316,6 +355,22 @@ class HomeController extends Controller
 
         }
     }
+
+    $details = [
+        'title' => 'คุณทำการลงทะเบียนผ่านเว็บ khunsukto.com สำเร็จแล้ว',
+        'fname' => $request['fname'],
+        'image' => $get_ev->image,
+        'qrcode' => $qrcode,
+        'lname' => $request['lname'],
+        'url' => url('events/'.$request['e_id']),
+        'subject' => $get_ev->name,
+        'address' => $get_ev->name_address .','. $get_ev->address,
+        'time' => $get_ev->start_event_date .','. $get_ev->end_event_date.' ในเวลา '. $get_ev->start_event_time,
+    ];
+
+   // dd($details);
+   
+    \Mail::to($request['email'])->send(new \App\Mail\Regismail($details));
 
 
       return redirect(url('thx_you'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');

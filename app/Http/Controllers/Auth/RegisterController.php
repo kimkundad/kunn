@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/my_events';
 
     /**
      * Create a new controller instance.
@@ -71,7 +71,7 @@ class RegisterController extends Controller
          Session::put('my_events', 0);
          $this->redirectTo = 'events/'.$id;
         }else{
-          $this->redirectTo = '/';
+          $this->redirectTo = '/my_events';
         }
 
           $ran = array("1483537975.png","1483556517.png","1483556686.png");

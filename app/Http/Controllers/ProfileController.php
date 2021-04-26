@@ -29,13 +29,13 @@ class ProfileController extends Controller
 
                 
 
-        $get_users = DB::table('get_users')
-                ->where('email', Auth::user()->email)
+        $get_users = DB::table('user_events')
+                ->where('user_id', Auth::user()->id)
                 ->get();
 
         if(isset($get_users)){
             foreach($get_users as $u){
-                $my_array[] = $u->status2;
+                $my_array[] = $u->event_id;
             }
         }
 
@@ -56,7 +56,7 @@ class ProfileController extends Controller
 
         $data['event'] = $event;
         
-       // dd($event);
+      //  dd($my_array);
 
         $user = User::find(Auth::user()->id);
         $data['objs'] = $user;

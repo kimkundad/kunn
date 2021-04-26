@@ -43,11 +43,14 @@ window.gaTitle = 'หน้าแรก';
                           <tr>
                             <th >วัน-เวลา</th>
                             <th >ชื่อ</th>
-							<th>นามสกุล</th>
+						              	<th>นามสกุล</th>
+                            <th>อายุ</th>
                             <th>อีเมล</th>
                             <th>เบอร์โทร</th>
                             <th>Line ID</th>
                             <th>facebook</th>
+                            <th>การศึกษา</th>
+                            <th>อาชีพ</th>
                             <th>รางวัล</th>
                             @if(isset($obj))
                             @foreach($obj as $u)
@@ -64,15 +67,25 @@ window.gaTitle = 'หน้าแรก';
                             {{$u->updated_at}}
                             </td>
                             <td>
-                              {{$u->fname}}  
+                              @if($u->first_n == 1)
+                              นาย 
+                              @elseif($u->first_n == 2)
+                              นางสาว 
+                              @else
+                              นาง 
+                              @endif
+                               {{$u->fname}}  
                             </td>
                             <td>
                                {{$u->lname}}
                             </td>
                             <td>
+                               {{$u->age}}
+                            </td>
+                            <td>
                             {{$u->email}}
                             </td>
-							<td>
+							              <td>
                               {{$u->phone}}
                             </td>
                             <td>
@@ -80,6 +93,12 @@ window.gaTitle = 'หน้าแรก';
                             </td>
                             <td>
                               {{$u->facebook}}
+                            </td>
+                            <td>
+                              {{$u->study}}
+                            </td>
+                            <td>
+                              {{$u->novice}}
                             </td>
                             <td>
                                  @if($u->status == 1)

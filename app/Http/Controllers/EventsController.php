@@ -145,6 +145,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function get_user_event($id)
     {
 
@@ -168,6 +171,57 @@ class EventsController extends Controller
         $data['objs'] = $objs;
 
         return view('admin.events.get_user_event', $data);
+    }
+
+    public function get_user_event_ans($id){
+
+        $get_data = DB::table('get_users')
+                ->where('id', $id)
+                ->first();
+
+                
+
+                $event = DB::table('events')
+                ->where('id', $get_data->status2)
+                ->first();
+
+        $obj = DB::table('questions')
+            ->where('cat_id', $event->ex_id)
+            ->orderBy('qu_sort', 'asc')
+            ->get();
+            $data['obj'] = $obj;
+
+
+            $answers = DB::table('answers')
+                        ->where('user_id', $id)
+                        ->get();
+
+                        if(isset($answers)){
+                            foreach($answers as $j){
+                                
+                                if($j->answers != null){
+                                if($j->type == 0){
+                                    $event = DB::table('options')
+                                        ->where('id', $j->answers)
+                                        ->first();
+
+                                        $j->my_ans = $event->op_name;
+                                }
+                            }else{
+                                $j->my_ans = "ไม่ได้ตอบในข้อนี้";
+                            }
+                                
+
+                            }
+                        }
+
+                        $get_data->ans = $answers;
+                      //  dd($get_data);
+                        $data['get_data'] = $get_data;
+             
+
+        return view('admin.events.get_user_event_ans', $data);
+        
     }
 
     public function report_event($id)

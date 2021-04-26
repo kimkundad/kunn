@@ -33,6 +33,9 @@ Route::get('/policy', 'HomeController@policy')->name('policy');
 
 Route::get('/events', 'HomeController@events')->name('events');
 
+Route::post('/api/submit_my_events', 'HomeController@submit_my_events')->name('submit_my_events');
+
+Route::get('/user_review/{id}', 'HomeController@user_review')->name('user_review');
 Route::get('/events/{id}', 'HomeController@events_id')->name('events_id');
 Route::get('/api/regis_event/{id}', 'HomeController@regis_event')->name('regis_event');
 
@@ -89,6 +92,8 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
 
 
     Route::get('admin/get_user_event/{id}', 'EventsController@get_user_event')->name('get_user_event');
+    Route::get('admin/get_user_event_ans/{id}', 'EventsController@get_user_event_ans')->name('get_user_event_ans');
+
 
     Route::get('admin/example', 'ExampleController@index')->name('index');
     Route::get('admin/example/create', 'ExampleController@create')->name('create');

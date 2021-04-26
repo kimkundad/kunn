@@ -204,7 +204,7 @@ a, a:link {color: #1c344d;text-decoration: none !important;}
 																					<tr>
 																						<td class="font_fix" style="font-size:14px; mso-line-height-rule:exactly; line-height:20px; color:#555555; font-weight:bold; font-family: 'Montserrat', sans-serif;" align="left">
 																							<br />
-																						ขอขอบคุณ {{$details['fname']}} {{$details['lname']}} กับการเข้าร่วมกิจกรรมในครั้งนี้  </td>
+																						ขอขอบคุณ {{$details['fname']}}  กับการเข้าร่วมกิจกรรมในครั้งนี้  </td>
 																					</tr>
 																					<tr>
 																						<td height="20" style="line-height:20px; " ></td>

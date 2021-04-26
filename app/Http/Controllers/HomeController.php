@@ -11,6 +11,7 @@ use App\get_user;
 use App\answer;
 use App\banner;
 use App\review;
+use App\user_event;
 use Session;
 use App\User;
 use Auth;
@@ -232,6 +233,33 @@ class HomeController extends Controller
         return view('event_detail', $data);
     }
 
+
+    public function user_review($id){
+
+        $event = DB::table('events')
+                ->where('id', $id)
+                ->first();
+
+        $data['event'] = $event;
+
+        $obj = DB::table('questions')
+            ->where('cat_id', $event->ex_id)
+            ->orderBy('qu_sort', 'asc')
+            ->get();
+
+        $optionsRes = [];
+        foreach ($obj as $u) {
+            $options = DB::table('options')->where('qu_id',$u->id)->get();
+            $u->option = $options;
+        }
+        $s = 1;
+        $data['obj'] = $obj;
+        $data['s'] = $s;
+       // dd($obj);
+
+        return view('user_review', $data);
+    }
+
     public function events(){
         $event = DB::table('events')
                 ->where('status', 1)
@@ -241,6 +269,75 @@ class HomeController extends Controller
         $data['event'] = $event;
 
         return view('events', $data);
+    }
+
+    public function submit_my_events(Request $request){
+
+        if (Auth::check()){
+
+            $ch = DB::table('user_events')
+            ->where('event_id', $request['id_event'])
+            ->where('user_id', Auth::user()->id)
+            ->count();
+
+            if($ch > 0){
+
+                return response()->json([
+                    'data' => [
+                      'status' => 100,
+                      'msg' => 'ท่านได้ทำการลงทะเบียนไปแล้ว'
+                    ]
+                  ]);
+
+            }else{
+
+            $package = new user_event();
+            $package->event_id = $request['id_event'];
+            $package->user_id = Auth::user()->id;
+            $package->save();
+
+            $get_ev = DB::table('events')
+            ->where('id', $request['id_event'])
+            ->first();
+
+
+
+            $details = [
+                'title' => 'คุณทำการลงทะเบียนผ่านเว็บ khunsukto.com สำเร็จแล้ว',
+                'fname' => Auth::user()->name,
+                'image' => $get_ev->image,
+                'qrcode' => Auth::user()->code_user,
+                'url' => url('events/'.$request['id_event']),
+                'subject' => $get_ev->name,
+                'address' => $get_ev->name_address .','. $get_ev->address,
+                'time' => $get_ev->start_event_date .','. $get_ev->end_event_date.' ในเวลา '. $get_ev->start_event_time,
+            ];
+        
+           // dd($details);
+           
+            \Mail::to(Auth::user()->email)->send(new \App\Mail\Regismail($details));
+
+
+            return response()->json([
+                'data' => [
+                  'status' => 200,
+                  'msg' => 'ขอบคุณที่สนใจในการเข้าร่วมกิจกรรมในครั้งนี้ เราจะทำการส่งข้อมูลไปยังอีเมล'
+                ]
+              ]);
+
+                }
+
+        }else{
+
+            return response()->json([
+                'data' => [
+                  'status' => 100,
+                  'msg' => 'กรูณาสมัครสมาชิกหรือทำการเข้าสู่ระบบ ก่อนเข้าร่วมกิจกรรม'
+                ]
+              ]);
+
+        }
+
     }
 
 
@@ -258,23 +355,19 @@ class HomeController extends Controller
             'novice' => 'required'
         ]);
 
-        $check_phone = DB::table('get_users')
-        ->where('phone', $request['phone'])
-        ->count();
+        $check_phone = 0;
 
-        $check_email = DB::table('get_users')
-        ->where('email', $request['email'])
-        ->count();
+        $check_email = 0;
 
      if($check_phone > 0){
-        return redirect(url('events/'.$request['e_id']))->with('error_phone','คุณทำการเพิ่มอสังหา สำเร็จ');
+        return redirect(url('user_review/'.$request['e_id']))->with('error_phone','คุณทำการเพิ่มอสังหา สำเร็จ');
      }else{
 
      
 
      if($check_email > 0){
 
-        return redirect(url('events/'.$request['e_id']))->with('error_email','คุณทำการเพิ่มอสังหา สำเร็จ');
+        return redirect(url('user_review/'.$request['e_id']))->with('error_email','คุณทำการเพิ่มอสังหา สำเร็จ');
 
      }else{
 
@@ -289,20 +382,22 @@ class HomeController extends Controller
         ->where('cat_id', $get_ev->ex_id)
         ->get();
 
-      $package = new get_user();
-      $package->fname = $request['fname'];
-      $package->lname = $request['lname'];
-      $package->email = $request['email'];
-      $package->phone = $request['phone'];
-      $package->line = $request['line'];
-      $package->facebook = $request['facebook'];
-      $package->status2 = $request['e_id'];
-      $package->status3 = $get_ev->ex_id;
-      $package->first_n = $request['first_n'];
-      $package->age = $request['age'];
-        $package->study = $request['study'];
-        $package->novice = $request['novice'];
-      $package->save();
+      $packag = new get_user();
+      $packag->fname = $request['fname'];
+      $packag->lname = $request['lname'];
+      $packag->email = $request['email'];
+      $packag->phone = $request['phone'];
+      $packag->line = $request['line'];
+      $packag->facebook = $request['facebook'];
+      $packag->status2 = $request['e_id'];
+      $packag->status3 = $get_ev->ex_id;
+      $packag->first_n = $request['first_n'];
+      $packag->age = $request['age'];
+        $packag->study = $request['study'];
+        $packag->novice = $request['novice'];
+      $packag->save();
+
+      $user_id_ans = $packag->id;
 
       if (Auth::check()){
 
@@ -335,7 +430,7 @@ class HomeController extends Controller
 
                 if($u->type == 0){
                 $pay = new answer();
-                $pay->user_id  = $package->id;
+                $pay->user_id  = $user_id_ans;
                 $pay->answers = $value;
                 $pay->type = $u->type;
                 $pay->e_id = $request['e_id'];
@@ -344,7 +439,7 @@ class HomeController extends Controller
                 $pay->save(); 
                 }else{
                 $pay = new answer();
-                $pay->user_id  = $package->id;
+                $pay->user_id  = $user_id_ans;
                 $pay->answers = $request['valuex_'.$u->id];
                 $pay->type = $u->type;
                 $pay->e_id = $request['e_id'];
@@ -356,21 +451,7 @@ class HomeController extends Controller
         }
     }
 
-    $details = [
-        'title' => 'คุณทำการลงทะเบียนผ่านเว็บ khunsukto.com สำเร็จแล้ว',
-        'fname' => $request['fname'],
-        'image' => $get_ev->image,
-        'qrcode' => $qrcode,
-        'lname' => $request['lname'],
-        'url' => url('events/'.$request['e_id']),
-        'subject' => $get_ev->name,
-        'address' => $get_ev->name_address .','. $get_ev->address,
-        'time' => $get_ev->start_event_date .','. $get_ev->end_event_date.' ในเวลา '. $get_ev->start_event_time,
-    ];
-
-   // dd($details);
    
-    \Mail::to($request['email'])->send(new \App\Mail\Regismail($details));
 
 
       return redirect(url('thx_you'))->with('add_success','คุณทำการเพิ่มอสังหา สำเร็จ');

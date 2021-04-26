@@ -58,7 +58,7 @@ window.gaTitle = 'หน้าแรก';
                     <div class="form-row">
                         
                         <div class="checkboxes margin-top-10">
-                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input type="checkbox" name="remember" id="remember-me" {{ old('remember') ? 'checked' : '' }}>
                             <label for="remember-me">จดจำฉันไว้ในระบบ</label>
                         </div>
                         <br>

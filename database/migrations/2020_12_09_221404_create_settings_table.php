@@ -19,6 +19,9 @@ class CreateSettingsTable extends Migration
             $table->string('facebook')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('youtube_url')->nullable();
             $table->string('facebook_image')->nullable();
             $table->string('facebook_title')->nullable();
             $table->string('facebook_detail')->nullable();
@@ -27,6 +30,9 @@ class CreateSettingsTable extends Migration
             $table->string('line_token')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('tax')->nullable();
+            $table->string('company')->nullable();
+            $table->text('address')->nullable();
             $table->text('google_analytic')->nullable();
             $table->longText('get_my_file')->nullable();
             $table->timestamps();

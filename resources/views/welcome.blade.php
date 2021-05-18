@@ -93,7 +93,7 @@ video {
 				<span class="margin-top-25">สร้างคนดีด้วยประวัติศาสตร์ สร้างชาติด้วยอุดมการณ์</span>
 			</h2>
 			<div id="player-overlay">
-			<video poster="{{ url('img/S__30842894.jpg') }}" controls>
+			<video poster="{{ url('img/Cover video.jpg') }}" controls>
 				<source src="{{ url('img/video_khunsukto.mp4') }}" />
 			</video>    
 			</div>

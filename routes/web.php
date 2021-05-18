@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->name('social.oauth');
+Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
+
 Route::post('/api/add_contact', 'HomeController@add_contact')->name('add_contact');
 
 Route::get('/about', 'HomeController@about')->name('about');

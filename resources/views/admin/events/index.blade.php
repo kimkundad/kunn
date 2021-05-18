@@ -42,7 +42,7 @@ window.gaTitle = 'หน้าแรก';
                       @foreach($objs as $u)
                           <tr access_id="{{$u->id}}">
                             <td>
-                              {{$u->name}}
+                              {{ substr($u->name, 0, 20) }}
                             </td>
                             <td>
                               @if($u->type == 0)

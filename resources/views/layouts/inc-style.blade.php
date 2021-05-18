@@ -89,4 +89,7 @@ img.footer-logo {
     max-height: 88px;
     width: auto;
 }
+a.button, a.button:hover{{
+    font-family: 'Prompt', sans-serif;
+}
 </style>

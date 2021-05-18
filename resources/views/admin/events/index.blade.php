@@ -41,7 +41,7 @@ window.gaTitle = 'หน้าแรก';
 						@if(isset($objs))
                       @foreach($objs as $u)
                           <tr access_id="{{$u->id}}">
-                            <td>
+                            <td style="overflow: hidden; max-width: 250px;}">
                               {{ $u->name }}
                             </td>
                             <td>

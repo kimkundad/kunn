@@ -26,7 +26,6 @@
 				</ul>
 
 				<ul class="footer-links">
-					<li><a href="#">คำถามที่พบบ่อย</a></li>
 					<li><a href="{{ url('blog') }}#">ข่าวสาร</a></li>
 					<li><a href="{{ url('contact') }}#">ติดต่อขุนศึกโต</a></li>
 				</ul>

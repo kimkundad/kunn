@@ -422,7 +422,7 @@ $(document).ready(function(){
 		  breakpoint: 767,
 		  settings: {
 		    centerPadding: '10px',
-		    slidesToShow: 1
+		    slidesToShow: 2
 		  }
 		}
 	  ]

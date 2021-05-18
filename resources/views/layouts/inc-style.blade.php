@@ -93,6 +93,6 @@ a.button, a.button:hover{{
     font-family: 'Prompt', sans-serif;
 }
 #contact input.button.submit{
-    font-family: 'Prompt', sans-serif;
+    font-family: 'Prompt', sans-serif !important;
 }
 </style>

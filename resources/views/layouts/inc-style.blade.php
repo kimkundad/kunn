@@ -92,4 +92,7 @@ img.footer-logo {
 a.button, a.button:hover{{
     font-family: 'Prompt', sans-serif;
 }
+#contact input.button.submit{
+    font-family: 'Prompt', sans-serif;
+}
 </style>

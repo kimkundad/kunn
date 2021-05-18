@@ -36,12 +36,17 @@
 		<h5><b>สถานที่ :</b> {{ $event->name_address }}, {{ $event->address }}</h5>
 		<h5><b>จำนวน :</b> {{ $event->total }} คน</h5>
         <br>
-        <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
+
+        
 
 		@if($event->type == 0)
 		<div class="text-center margin-bottom-50 margin-top-50">
 		<a href="{{ url('/api/regis_event/'.$event->id) }}" class="button btnSendData">ลงทะเบียนเข้าร่วมงาน</a>
+        <br>
+        <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
 		</div>
+        @else
+        <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
 		@endif
 
         <p>

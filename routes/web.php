@@ -60,7 +60,6 @@ Route::group(['middleware' => ['UserRole:manager|employee|customer']], function(
     Route::get('/my_events', 'ProfileController@my_events');
     Route::post('api/post_update_profile', 'ProfileController@post_update_profile')->name('post_update_profile');
     
-    
 });
 
 Route::group(['middleware' => ['UserRole:manager|employee']], function() {

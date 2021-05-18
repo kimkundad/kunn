@@ -72,7 +72,7 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h2 class="headline centered margin-top-80">
+			<h2 class="headline centered margin-top-50">
 				ขุนศึกโต รักชาติ
 				<span class="margin-top-25">มิเคยหวังจะเป็นวีรบุรุษ แต่ก็สุดเห็นชาติพินาศสลาย มิเคยหวังจะเป็นวีรสตรี แค่อยากทำความดีเพื่อแผ่นดิน</span>
 			</h2>

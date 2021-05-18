@@ -7,6 +7,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
 use App\event;
 use App\get_user;
+use App\user_event;
 use Auth;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -72,6 +73,25 @@ class EventsController extends Controller
         ]);
     
         }
+
+        public function getuser_status2(Request $request){
+
+        
+              $user = user_event::findOrFail($request->user_id);
+        
+                      if($user->status == 1){
+                          $user->status = 0;
+                      } else {
+                          $user->status = 1;
+                      }
+        
+              return response()->json([
+              'data' => [
+                'success' => $user->save(),
+              ]
+            ]);
+        
+            }
 
 
         public function getuser_status(Request $request){
@@ -146,7 +166,38 @@ class EventsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function get_user_join_event($id){
+
+        $count = DB::table('user_events')
+                ->where('event_id', $id)
+                ->count();
+
+                $data['count'] = $count;
+        
+
+        $bill = DB::table('user_events')->select(
+            'user_events.*',
+            'user_events.created_at as create',
+            'user_events.id as idb',
+            'user_events.status as status_e',
+            'users.*',
+            'users.id as idu',
+            )
+            ->leftjoin('users', 'users.id',  'user_events.user_id')
+            ->where('user_events.event_id', $id)
+            ->paginate(15);
+
+        $data['obj'] = $bill;
+
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
     
+
+        return view('admin.events.get_user_join_event', $data);
+
+    }
 
     public function get_user_event($id)
     {
@@ -284,10 +335,61 @@ class EventsController extends Controller
     }
 
 
+    public function random_user5_join($id){
+
+        $obj = DB::table('user_events')->select(
+            'user_events.*',
+            'user_events.created_at as create',
+            'user_events.id as idb',
+            'user_events.status as status_e',
+            'users.*',
+            'users.id as idu',
+            )
+            ->leftjoin('users', 'users.id',  'user_events.user_id')
+            ->where('user_events.event_id', $id)
+            ->inRandomOrder()->limit(5)->get();
+   
+
+        $data['obj'] = $obj;
+
+        //
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
+        return view('admin.events.random_user5_join', $data);
+    }
+
+    public function random_user10_join($id){
+
+
+        $obj = DB::table('user_events')->select(
+            'user_events.*',
+            'user_events.created_at as create',
+            'user_events.id as idb',
+            'user_events.status as status_e',
+            'users.*',
+            'users.id as idu',
+            )
+            ->leftjoin('users', 'users.id',  'user_events.user_id')
+            ->where('user_events.event_id', $id)
+            ->inRandomOrder()->limit(10)->get();
+
+        $data['obj'] = $obj;
+
+
+        //
+        $objs = event::find($id);
+
+        $data['objs'] = $objs;
+
+        return view('admin.events.random_user10_join', $data);
+    }
+
     public function random_user5($id){
 
 
-        $obj = get_user::inRandomOrder()->limit(5)->get();
+        $obj = get_user::where('status2', $id)->inRandomOrder()->limit(5)->get();
 
         $data['obj'] = $obj;
 
@@ -303,7 +405,7 @@ class EventsController extends Controller
     public function random_user10($id){
 
 
-        $obj = get_user::inRandomOrder()->limit(10)->get();
+        $obj = get_user::where('status2', $id)->inRandomOrder()->limit(10)->get();
 
         $data['obj'] = $obj;
 
@@ -443,4 +545,17 @@ class EventsController extends Controller
         return redirect(url('admin/get_user_event/'.$user->status2))->with('del_success','คุณทำการเพิ่มอสังหา สำเร็จ');
 
     }
+
+    public function del_user_event_join($id){
+
+        $user = DB::table('user_events')
+        ->where('id', $id)
+        ->first();
+        $redirect = $user->event_id;
+        DB::table('user_events')->where('id', $id)->delete();
+        return redirect(url('admin/get_user_join_event/'.$redirect))->with('del_success','คุณทำการเพิ่มอสังหา สำเร็จ');
+
+    }
+
+    
 }

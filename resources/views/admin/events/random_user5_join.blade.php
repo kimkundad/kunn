@@ -15,15 +15,15 @@ window.gaTitle = 'หน้าแรก';
 <div class="row">
                 
                 <div class="col-md-12">
-                <a href="{{ url('admin/get_user_event/'.$objs->id) }}" class="btn btn-danger btn-fw" style="float:left"><i class="icon-user"></i>ผู้ร่วมกรอกแบบสอบถาม</a>
-                <a href="{{ url('admin/random_user5/'.$objs->id) }}" class="btn btn-info btn-fw" style="float:right; "><i class="icon-user"></i>สุ่มผู้โชคดี 5 คน</a>
-                <a href="{{ url('admin/random_user10/'.$objs->id) }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 10 คน</a>
+                <a href="{{ url('admin/get_user_join_event/'.$objs->id) }}" class="btn btn-danger btn-fw" style="float:left"><i class="icon-user"></i>ผู้เข้าร่วมงาน</a>
+                  <a href="{{ url('admin/random_user5_join/'.$objs->id) }}" class="btn btn-info btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 5 คน</a>
+                  <a href="{{ url('admin/random_user10_join/'.$objs->id) }}" class="btn btn-success btn-fw" style="float:right"><i class="icon-user"></i>สุ่มผู้โชคดี 10 คน</a>
                   <br /><br />
                 </div>
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">สุ่มผู้โชคดี 5 คน</h4>
+                    <h4 class="card-title">สุ่มผู้โชคดี 5 คน</h4>
 
                       <div class="table-responsive">
 
@@ -33,11 +33,9 @@ window.gaTitle = 'หน้าแรก';
 
                           <tr>
                           <th> </th>
-                            <th>ชื่อ - นามสกุล </th>
+                            <th>ชื่อผู้เข้าร่วม </th>
                             <th>อีเมล</th>
 							<th>เบอร์โทร</th>
-                            <th>Line ID</th>
-                            <th>facebook</th>
                             <th>ให้รางวัล</th>
                             <th>ดำเนินการ</th>
                           </tr>
@@ -46,10 +44,10 @@ window.gaTitle = 'หน้าแรก';
                       
 						@if(isset($obj))
                       @foreach($obj as $u)
-                          <tr access_id="{{$u->id}}">
+                          <tr access_id="{{$u->idb}}">
                           <td> {{$u->created_at}} </td>
                             <td>
-                              {{$u->fname}}  {{$u->lname}}
+                              {{$u->name}}
                             </td>
                             <td>
                             {{$u->email}}
@@ -57,16 +55,11 @@ window.gaTitle = 'หน้าแรก';
 							<td>
                               {{$u->phone}}
                             </td>
-                            <td>
-                              {{$u->line}}
-                            </td>
-                            <td>
-                              {{$u->facebook}}
-                            </td>
+                            
                             <td>
                               <div class="form-check form-check-flat">
                               <label class="form-check-label">
-                                <input class="checkbox" type="checkbox" @if($u->status == 1)
+                                <input class="checkbox" type="checkbox" @if($u->status_e == 1)
                                   checked="checked"
                                   @endif>
                                 ไม่ได้ / ได้
@@ -74,7 +67,8 @@ window.gaTitle = 'หน้าแรก';
                             </div>
                             </td>
                             <td>
-                            <a href="{{ url('admin/get_user_event_ans/'.$u->id) }}" class="btn btn-outline-success btn-sm">ดูแบบสอบถาม</a>
+                            
+                            <a href="{{ url('api/del_user_event_join/'.$u->idb) }}" onclick="return confirm('Are you sure?')" class="btn btn-outline-danger btn-sm">ลบ</a>
                             </td>
                           </tr>
                           @endforeach
@@ -84,7 +78,7 @@ window.gaTitle = 'หน้าแรก';
                         </tbody>
                       </table>
                       </div>
-					
+				
                     </div>
                   </div>
                 </div>
@@ -112,7 +106,7 @@ var course_id = $(this).closest('tr').attr('access_id');
 console.log('fea : '+course_id);
 $.ajax({
         type:'POST',
-        url:'{{url('api/getuser_status')}}',
+        url:'{{url('api/getuser_status2')}}',
         headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
         data: { "user_id" : course_id },
         success: function(data){

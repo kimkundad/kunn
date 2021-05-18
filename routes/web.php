@@ -83,13 +83,23 @@ Route::group(['middleware' => ['UserRole:manager|employee']], function() {
     Route::post('/api/events_upload_img', 'EventsController@upload_img')->name('home');
     Route::get('api/del_events/{id}', 'EventsController@del_events')->name('del_events');
     Route::post('api/events_status', 'EventsController@events_status')->name('events_status');
+
+    
+    Route::post('api/getuser_status2', 'EventsController@getuser_status2')->name('getuser_status2');
     Route::post('api/getuser_status', 'EventsController@getuser_status')->name('getuser_status');
     Route::get('admin/random_user5/{id}', 'EventsController@random_user5')->name('random_user5');
     Route::get('admin/random_user10/{id}', 'EventsController@random_user10')->name('random_user10');
+
+    Route::get('admin/random_user5_join/{id}', 'EventsController@random_user5_join')->name('random_user5');
+    Route::get('admin/random_user10_join/{id}', 'EventsController@random_user10_join')->name('random_user10');
+
     Route::get('admin/report_event/{id}', 'EventsController@report_event')->name('report_event');
 
     Route::get('api/del_user_event_ans/{id}', 'EventsController@del_user_event_ans')->name('del_user_event_ans');
-
+    Route::get('api/del_user_event_join/{id}', 'EventsController@del_user_event_join')->name('del_user_event_join');
+    
+    Route::get('admin/get_user_join_event/{id}', 'EventsController@get_user_join_event')->name('get_user_join_event');
+    
 
     Route::get('admin/get_user_event/{id}', 'EventsController@get_user_event')->name('get_user_event');
     Route::get('admin/get_user_event_ans/{id}', 'EventsController@get_user_event_ans')->name('get_user_event_ans');

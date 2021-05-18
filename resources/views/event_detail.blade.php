@@ -41,9 +41,9 @@
 
 		@if($event->type == 0)
 		<div class="text-center margin-bottom-50 margin-top-50">
-		<a href="{{ url('/api/regis_event/'.$event->id) }}" class="button btnSendData">ลงทะเบียนเข้าร่วมงาน</a>
+		<a href="{{ url('/api/regis_event/'.$event->id) }}" class="button btnSendData button margin-top-15">ลงทะเบียนเข้าร่วมงาน</a>
         <br>
-        <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
+        <a href="{{ url('/user_review/'.$event->id) }}" class="button margin-top-15">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
 		</div>
         @else
         <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
@@ -57,10 +57,10 @@
 	<div class="text-center margin-bottom-70 margin-top-70">
 	
 	@if($event->type == 0)
-	<a href="{{ url('/api/regis_event/'.$event->id) }}"  class="button btnSendData">ลงทะเบียนเข้าร่วมงาน</a>
+	<a href="{{ url('/api/regis_event/'.$event->id) }}"  class="button btnSendData button margin-top-15">ลงทะเบียนเข้าร่วมงาน</a>
 	@endif
 
-	<a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
+	<a href="{{ url('/user_review/'.$event->id) }}" class="button button margin-top-15">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
 	</div>
 			
         </div>

@@ -14515,8 +14515,21 @@ img.mfp-img {
     border-bottom: 1px solid #e8e8e8;
     width: 100%;
 }
-a.button, a.button:hover{
+a.button2, a.button2:hover{
 	background-color: #00b300 !important;
+	top: 0;
+    padding: 9px 20px;
+    color: #fff;
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin-right: 6px;
+    overflow: hidden;
+    border: none;
+    border-radius: 50px;
 }
 a.button1, a.button1:hover{
 	background-color: #0091c5f5 !important;

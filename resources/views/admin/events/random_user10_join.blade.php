@@ -45,7 +45,7 @@ window.gaTitle = 'หน้าแรก';
 						@if(isset($obj))
                       @foreach($obj as $u)
                           <tr access_id="{{$u->idb}}">
-                          <td> {{$u->created_at}} </td>
+                          <td> {{$u->create}} </td>
                             <td>
                               {{$u->name}}
                             </td>

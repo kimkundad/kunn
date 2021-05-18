@@ -1,6 +1,6 @@
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="{{ url('assets/css/style.css') }}?v2.6">
+<link rel="stylesheet" href="{{ url('assets/css/style.css') }}?v2.7">
 <link rel="stylesheet" href="{{ url('assets/css/colors/main.css') }}" id="colors">
 <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 <link rel="shortcut icon" href="{{ url('img/favicon.png') }}" />
@@ -95,4 +95,5 @@ a.button, a.button:hover{{
 #contact input.button.submit{
     font-family: 'Prompt', sans-serif !important;
 }
+
 </style>

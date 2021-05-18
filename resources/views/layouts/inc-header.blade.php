@@ -25,12 +25,12 @@
 
 				<!-- Main Navigation -->
 				<nav id="navigation" class="style-1">
-					<ul id="responsive">
+					<ul id="responsive" style="font-size: 15px;">
 						<li><a href="{{ url('/') }}">หน้าแรก</a></li>
-						<li><a href="{{ url('/about') }}">เกี่ยวกับเรา</a></li>
-						<li><a href="{{ url('/events') }}">งานสัมมนา</a></li>
+						<li><a href="{{ url('/about') }}">เกี่ยวกับขุนศึกโต</a></li>
+						<li><a href="{{ url('/events') }}">งานบรรยาย</a></li>
 						<li><a href="{{ url('/blog') }}">ข่าวสาร</a></li>
-						<li><a href="{{ url('/contact') }}">ติดต่อเรา</a></li>
+						<li><a href="{{ url('/contact') }}">ติดต่อขุนศึกโต</a></li>
 					</ul>
 				</nav>
 				<div class="clearfix"></div>

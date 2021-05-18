@@ -19,15 +19,15 @@
 					@else
 					<li><a href="{{ url('profile') }}">ข้อมูลของฉัน</a></li>
 					@endif
-					<li><a href="{{ url('events') }}#">งานสัมมนา</a></li>
+					<li><a href="{{ url('events') }}#">งานบรรยาย</a></li>
 					<li><a href="{{ url('terms') }}#">เงื่อนไขการใช้งาน</a></li>
 					<li><a href="{{ url('policy') }}#">ความเป็นส่วนตัว</a></li>
 				</ul>
 
 				<ul class="footer-links">
 					<li><a href="#">คำถามที่พบบ่อย</a></li>
-					<li><a href="{{ url('blog') }}#">บทความ</a></li>
-					<li><a href="{{ url('contact') }}#">ติดต่อเรา</a></li>
+					<li><a href="{{ url('blog') }}#">ข่าวสาร</a></li>
+					<li><a href="{{ url('contact') }}#">ติดต่อขุนศึกโต</a></li>
 				</ul>
 				<div class="clearfix"></div>
 			</div>		

@@ -43,7 +43,7 @@
 
 			<section id="contact">
 				<h4 class="headline margin-bottom-35">ส่งข้อความถึงเรา</h4>
-
+        <p>ติดต่อให้ขุนศึกโตเป็นวิทยาการได้ที่นี่</p>
 				<div id="contact-message"></div> 
 
 					<form id="contactForm">

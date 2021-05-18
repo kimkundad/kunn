@@ -5,6 +5,12 @@
 @stop
 
 @section('stylesheet')
+
+<style>
+h2.headline {
+    font-size: 30px;
+}
+</style>
 @stop('stylesheet')
 
 @section('content')
@@ -73,7 +79,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="headline centered margin-top-50">
-				ขุนศึกโต รักชาติ
+			พลตรี ดร. วรวุฒิ แสงทอง<br> "ขุนศึกโต รักชาติ"
 				<span class="margin-top-25">มิเคยหวังจะเป็นวีรบุรุษ แต่ก็สุดเห็นชาติพินาศสลาย มิเคยหวังจะเป็นวีรสตรี แค่อยากทำความดีเพื่อแผ่นดิน</span>
 			</h2>
 		</div>

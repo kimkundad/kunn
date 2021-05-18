@@ -35,7 +35,7 @@
 		<h5><b>วันที่ :</b> {{ $event->start_event_date }} {{ $event->end_event_date }}, {{ $event->start_event_time }}</h5>
 		<h5><b>สถานที่ :</b> {{ $event->name_address }}, {{ $event->address }}</h5>
 		<h5><b>จำนวน :</b> {{ $event->total }} คน</h5>
-
+        <br>
         <a href="{{ url('/user_review/'.$event->id) }}" class="button">กรอกแบบสอบถามหลังเข้าร่วมงาน</a>
 
 		@if($event->type == 0)

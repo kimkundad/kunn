@@ -10,7 +10,7 @@
 <script type="text/javascript" src="{{ url('assets/scripts/counterup.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('assets/scripts/jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ url('assets/scripts/tooltips.min.js') }}"></script>
-<script type="text/javascript" src="{{ url('assets/scripts/custom.js') }}"></script>
+<script type="text/javascript" src="{{ url('assets/scripts/custom.js') }}?v2"></script>
 
 <!-- Messenger ปลั๊กอินแชท Code -->
 <div id="fb-root"></div>

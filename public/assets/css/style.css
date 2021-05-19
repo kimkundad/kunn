@@ -14518,7 +14518,7 @@ img.mfp-img {
 a.button2, a.button2:hover{
 	background-color: #00b300 !important;
 	top: 0;
-    padding: 9px 20px;
+    padding: 15px 20px;
     color: #fff;
     position: relative;
     font-size: 15px;
@@ -14534,7 +14534,7 @@ a.button2, a.button2:hover{
 a.button1, a.button1:hover{
 	background-color: #0091c5f5 !important;
 	top: 0;
-    padding: 9px 20px;
+    padding: 15px 20px;
     color: #fff;
     position: relative;
     font-size: 15px;

@@ -91,7 +91,25 @@ class SocialAuthController extends Controller
                 'access_token' => $providerUser->token
             ]);
         } else {
-            // create a new user
+
+            if($providerUser->getEmail() == null){
+
+                // create a new user
+            $user = User::create([
+                'name' => $providerUser->getName(),
+                'email' => (\random_int(1000, 9999)).'@khunsukto.com',
+                'avatar' => $providerUser->getAvatar(),
+                'provider' => $driver,
+                'provider_id' => $providerUser->getId(),
+                'code_user' => $randomSixDigitInt,
+                'access_token' => $providerUser->token,
+                // user can use reset password to create a password
+                'password' => ''
+            ]);
+
+            }else{
+
+                // create a new user
             $user = User::create([
                 'name' => $providerUser->getName(),
                 'email' => $providerUser->getEmail(),
@@ -103,6 +121,9 @@ class SocialAuthController extends Controller
                 // user can use reset password to create a password
                 'password' => ''
             ]);
+
+            }
+            
 
 
         }
